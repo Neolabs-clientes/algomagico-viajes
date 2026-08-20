@@ -137,7 +137,6 @@ section{padding:130px 48px}
 @keyframes panelIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
 .dest-media{position:relative;overflow:hidden}
 .dest-media img{width:100%;height:100%;max-height:660px;object-fit:cover;aspect-ratio:4/4.4}
-.dest-pill{position:absolute;bottom:22px;left:22px;background:rgba(18,37,38,.82);backdrop-filter:blur(8px);color:#fff;font-size:10px;letter-spacing:.24em;text-transform:uppercase;padding:13px 20px}
 .dest-content .section-label{margin-bottom:16px}
 .dest-name{font-family:var(--serif);font-weight:300;font-size:clamp(30px,3.4vw,46px);line-height:1.15;margin-bottom:20px}
 .dest-desc{color:var(--sage);font-size:14px;line-height:1.9;margin-bottom:34px;font-weight:300}
@@ -163,23 +162,6 @@ section{padding:130px 48px}
 .ex-row .ex-name{font-family:var(--serif);font-size:clamp(22px,2.6vw,34px);font-weight:300}
 .ex-row .ex-desc{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sage);text-align:right}
 .ex-row .ex-num{font-size:10px;color:var(--aqua);letter-spacing:.2em;margin-right:28px;width:28px}
-
-/* ---------- PRECIOS ---------- */
-.precios{background:var(--cream)}
-.precios-head{text-align:center;margin-bottom:70px}
-.precios-head .section-label{text-align:center}
-.precios-head .section-sub{margin:0 auto}
-.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--pearl);border:1px solid var(--pearl)}
-.price-card{background:var(--cream);padding:52px 40px;text-align:center;transition:background .5s}
-.price-card:hover{background:#fff}
-.price-card .p-dest{font-family:var(--serif);font-size:26px;font-weight:400}
-.price-card .p-line{width:34px;height:1px;background:var(--terracotta);margin:18px auto}
-.price-card .p-desde{font-size:9px;letter-spacing:.34em;text-transform:uppercase;color:var(--sage)}
-.price-card .p-precio{font-family:var(--serif);font-size:44px;font-weight:300;margin-top:6px}
-.price-card .p-precio small{font-size:17px;color:var(--sage)}
-.price-card .p-note{font-size:11px;color:var(--sage);line-height:1.7;margin-top:12px;font-weight:300}
-.precios-note{text-align:center;color:var(--sage);font-size:12px;margin-top:34px;letter-spacing:.06em}
-.precios-note em{font-family:var(--serif);font-style:italic;color:var(--ink);font-size:15px}
 
 /* ---------- HONEYMOON BANNER ---------- */
 .honeymoon{position:relative;height:70vh;min-height:480px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
@@ -224,6 +206,16 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
 .f-mail{color:var(--aqua);font-family:var(--serif);font-size:19px;font-style:italic}
 .f-legal{margin-top:50px;padding-top:26px;border-top:1px solid rgba(224,225,221,.12);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35)}
 
+/* ---------- WHATSAPP BUBBLE ---------- */
+.wa-bubble{position:fixed;right:26px;bottom:26px;z-index:95;display:flex;align-items:center;background:var(--terracotta);color:#fff;border-radius:999px;text-decoration:none;transition:all .45s var(--ease);box-shadow:0 10px 30px rgba(199,53,26,.35)}
+.wa-bubble .wa-ico{display:flex;align-items:center;justify-content:center;width:60px;height:60px;flex-shrink:0}
+.wa-bubble .wa-ico svg{width:29px;height:29px;fill:#fff}
+.wa-bubble .wa-label{max-width:0;opacity:0;white-space:nowrap;overflow:hidden;font-size:10px;letter-spacing:.2em;text-transform:uppercase;transition:all .5s var(--ease)}
+.wa-bubble:hover .wa-label{max-width:230px;opacity:1;padding-right:28px}
+.wa-bubble:hover{background:var(--ink);box-shadow:0 12px 34px rgba(18,37,38,.42)}
+.wa-bubble::before{content:'';position:absolute;inset:0;border-radius:999px;border:1px solid var(--aqua);animation:waPulse 2.6s var(--ease) infinite}
+@keyframes waPulse{0%{transform:scale(1);opacity:.85}70%{transform:scale(1.4);opacity:0}100%{transform:scale(1.4);opacity:0}}
+
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:960px){
   .nav-links{display:none}
@@ -260,7 +252,6 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
   <div class="nav-links">
     <a href="#destinos">Destinos</a>
     <a href="#experiencias">Experiencias</a>
-    <a href="#precios">Inversión</a>
     <a href="#contacto">Contacto</a>
     <a href="#contacto" class="cta-nav">Planifica tu viaje</a>
   </div>
@@ -275,8 +266,7 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
       <a href="#quienes"><span class="n">01</span>Quiénes somos</a>
       <a href="#destinos"><span class="n">02</span>Destinos</a>
       <a href="#experiencias"><span class="n">03</span>Experiencias</a>
-      <a href="#precios"><span class="n">04</span>Inversión</a>
-      <a href="#contacto"><span class="n">05</span>Contacto</a>
+      <a href="#contacto"><span class="n">04</span>Contacto</a>
     </nav>
     <div class="overlay-foot">
       <a href="#contacto" class="btn btn-solid">Planifica tu viaje</a>
@@ -343,7 +333,6 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
     <div class="dest-panel active" id="dest-maldives" role="tabpanel">
       <div class="dest-media">
         <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1600&q=80" alt="Villas sobre el agua en Maldivas">
-        <div class="dest-pill">Desde 5.000€ / pax</div>
       </div>
       <div class="dest-content">
         <div class="section-label">01 — Maldivas</div>
@@ -369,7 +358,6 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
     <div class="dest-panel" id="dest-seychelles" role="tabpanel">
       <div class="dest-media">
         <img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=1600&q=80" alt="Playas de granito rosa en Seychelles">
-        <div class="dest-pill">Desde 6.500€ / pax</div>
       </div>
       <div class="dest-content">
         <div class="section-label">02 — Seychelles</div>
@@ -395,7 +383,6 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
     <div class="dest-panel" id="dest-polynesia" role="tabpanel">
       <div class="dest-media">
         <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=1600&q=80" alt="Laguna de Bora Bora, Polinesia Francesa">
-        <div class="dest-pill">Desde 7.000€ / pax</div>
       </div>
       <div class="dest-content">
         <div class="section-label">03 — Polinesia Francesa</div>
@@ -421,7 +408,6 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
     <div class="dest-panel" id="dest-tanzania" role="tabpanel">
       <div class="dest-media">
         <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1600&q=80" alt="Elefantes en el Serengeti, Tanzania">
-        <div class="dest-pill">Desde 8.000€ / pax</div>
       </div>
       <div class="dest-content">
         <div class="section-label">04 — Tanzania</div>
@@ -447,7 +433,6 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
     <div class="dest-panel" id="dest-japan" role="tabpanel">
       <div class="dest-media">
         <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1600&q=80" alt="Monte Fuji y torii en Japón">
-        <div class="dest-pill">Desde 6.000€ / pax</div>
       </div>
       <div class="dest-content">
         <div class="section-label">05 — Japón</div>
@@ -473,7 +458,6 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
     <div class="dest-panel" id="dest-mauritius" role="tabpanel">
       <div class="dest-media">
         <img src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=1600&q=80" alt="Costa de Mauricio">
-        <div class="dest-pill">Desde 5.500€ / pax</div>
       </div>
       <div class="dest-content">
         <div class="section-label">06 — Mauricio</div>
@@ -528,26 +512,6 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
   </div>
 </div>
 
-<!-- PRECIOS -->
-<section class="precios" id="precios">
-  <div class="wrap">
-    <div class="precios-head reveal">
-      <div class="section-label">Precios orientativos</div>
-      <h2 class="section-title">Para empezar a soñar</h2>
-      <p class="section-sub">Nuestros viajes suelen comenzar desde las siguientes cifras. Cada itinerario se diseña a medida — el precio final depende de temporada, hoteles y experiencias elegidas.</p>
-    </div>
-    <div class="price-grid reveal">
-      <div class="price-card"><div class="p-dest">Maldivas</div><div class="p-line"></div><div class="p-desde">Desde</div><div class="p-precio">5.000€ <small>/pax</small></div><div class="p-note">Villa sobre el agua · 7 noches</div></div>
-      <div class="price-card"><div class="p-dest">Seychelles</div><div class="p-line"></div><div class="p-desde">Desde</div><div class="p-precio">6.500€ <small>/pax</small></div><div class="p-note">Villa privada · 8 noches</div></div>
-      <div class="price-card"><div class="p-dest">Polinesia Francesa</div><div class="p-line"></div><div class="p-desde">Desde</div><div class="p-precio">7.000€ <small>/pax</small></div><div class="p-note">Bora Bora · 9 noches</div></div>
-      <div class="price-card"><div class="p-dest">Tanzania + Zanzíbar</div><div class="p-line"></div><div class="p-desde">Desde</div><div class="p-precio">8.000€ <small>/pax</small></div><div class="p-note">Safari + playa · 10 noches</div></div>
-      <div class="price-card"><div class="p-dest">Japón</div><div class="p-line"></div><div class="p-desde">Desde</div><div class="p-precio">6.000€ <small>/pax</small></div><div class="p-note">Ruta premium · 8 noches</div></div>
-      <div class="price-card"><div class="p-dest">Mauricio</div><div class="p-line"></div><div class="p-desde">Desde</div><div class="p-precio">5.500€ <small>/pax</small></div><div class="p-note">Resort de autor · 7 noches</div></div>
-    </div>
-    <p class="precios-note reveal"><em>Viajes de lujo experiencial</em> · Itinerarios exclusivos · Precios orientativos por persona en habitación doble</p>
-  </div>
-</section>
-
 <!-- CONTACTO -->
 <section class="contacto" id="contacto">
   <div class="wrap contacto-grid">
@@ -593,7 +557,6 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
   <div class="f-links">
     <a href="#destinos">Destinos</a>
     <a href="#experiencias">Experiencias</a>
-    <a href="#precios">Inversión</a>
     <a href="#quienes">Quiénes somos</a>
     <a href="#contacto">Contacto</a>
   </div>
@@ -601,6 +564,12 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
   <a class="f-mail" href="mailto:algomagicoviajes@gmail.com">algomagicoviajes@gmail.com</a>
   <div class="f-legal">Algo Mágico Viajes · Destinos exóticos · Premium · Exclusivo · Honeymoon · Naturaleza · Lujo experiencial · Boutique</div>
 </footer>
+
+<!-- WHATSAPP -->
+<a class="wa-bubble" href="https://wa.me/34658237988?text=Hola%2C%20quiero%20dise%C3%B1ar%20un%20viaje%20con%20Algo%20M%C3%A1gico%20Viajes" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <span class="wa-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
+  <span class="wa-label">¿Hablamos de tu viaje?</span>
+</a>
 
 <script>
   // Nav scroll state
