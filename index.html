@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algo Mágico Viajes — Boutique Luxury Travel</title>
+<meta name="description" content="Viajes de lujo experiencial diseñados a medida: Maldivas, Seychelles, Polinesia Francesa, Tanzania, Japón y Mauricio. Itinerarios exclusivos, acceso privado, atención personalizada.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{
+  --terracotta:#C7351A;
+  --terracotta-soft:#D4644E;
+  --ink:#122526;
+  --sage:#637475;
+  --aqua:#9FE0E4;
+  --pearl:#E0E1DD;
+  --cream:#F7F4EF;
+  --white:#FFFFFF;
+  --gold:#9E8254;
+  --serif:'Cormorant Garamond','Century Gothic',Georgia,serif;
+  --sans:'Montserrat','Century Gothic',sans-serif;
+  --script:'Great Vibes',cursive;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--terracotta);color:#fff}
+
+/* ---------- NAV ---------- */
+#nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:28px 48px;display:flex;align-items:center;justify-content:space-between;transition:all .5s var(--ease)}
+#nav.scrolled{background:rgba(247,244,239,.92);backdrop-filter:blur(12px);padding:14px 48px;box-shadow:0 1px 0 rgba(18,37,38,.08)}
+.nav-slogan{position:absolute;top:8px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:.42em;text-transform:uppercase;color:var(--cream);opacity:.85;white-space:nowrap}
+#nav.scrolled .nav-slogan{color:var(--sage)}
+.brand{display:flex;flex-direction:column;line-height:1}
+.brand .b-script{font-family:var(--script);font-size:30px;color:var(--cream)}
+.brand .b-caps{font-size:9px;letter-spacing:.5em;text-transform:uppercase;color:var(--cream);opacity:.9;margin-top:2px}
+#nav.scrolled .brand .b-script{color:var(--ink)}
+#nav.scrolled .brand .b-caps{color:var(--sage)}
+.nav-links{display:flex;gap:44px;align-items:center}
+.nav-links a{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--cream);opacity:.9;transition:opacity .3s;position:relative}
+#nav.scrolled .nav-links a{color:var(--ink)}
+.nav-links a:hover{opacity:1}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--terracotta);transition:width .4s var(--ease)}
+.nav-links a:hover::after{width:100%}
+.cta-nav{border:1px solid rgba(255,255,255,.4);padding:11px 26px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;transition:all .4s var(--ease);color:var(--cream)!important}
+#nav.scrolled .cta-nav{border-color:var(--terracotta);color:var(--terracotta)!important}
+.cta-nav:hover{background:var(--terracotta);border-color:var(--terracotta);color:#fff!important}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:heroZoom 8s var(--ease) forwards}
+@keyframes heroZoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,37,38,.45) 0%,rgba(18,37,38,.25) 40%,rgba(18,37,38,.65) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 24px;max-width:900px}
+.eyebrow{font-size:11px;letter-spacing:.52em;text-transform:uppercase;color:var(--aqua);margin-bottom:28px;opacity:0;animation:fadeUp 1.2s var(--ease) .3s forwards}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(42px,7vw,88px);line-height:1.05;color:#fff;letter-spacing:.01em;margin-bottom:22px;opacity:0;animation:fadeUp 1.2s var(--ease) .55s forwards}
+.hero .tagline{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:44px;opacity:0;animation:fadeUp 1.2s var(--ease) .8s forwards}
+.hero-ctas{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp 1.2s var(--ease) 1.05s forwards}
+.btn{display:inline-block;padding:16px 42px;font-size:10px;letter-spacing:.26em;text-transform:uppercase;transition:all .45s var(--ease);cursor:pointer;border:none}
+.btn-solid{background:var(--terracotta);color:#fff}
+.btn-solid:hover{background:var(--ink)}
+.btn-ghost{border:1px solid rgba(255,255,255,.55);color:#fff;background:transparent}
+.btn-ghost:hover{background:#fff;color:var(--ink)}
+.scroll-hint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:2;font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.7);display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-hint::after{content:'';width:1px;height:44px;background:linear-gradient(180deg,rgba(255,255,255,.7),transparent);animation:drip 2.2s var(--ease) infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- SECTIONS GENERIC ---------- */
+section{padding:130px 48px}
+.wrap{max-width:1280px;margin:0 auto}
+.section-label{font-size:10px;letter-spacing:.5em;text-transform:uppercase;color:var(--terracotta);margin-bottom:22px}
+.section-title{font-family:var(--serif);font-weight:300;font-size:clamp(34px,4.6vw,58px);line-height:1.1;margin-bottom:26px}
+.section-sub{color:var(--sage);font-size:14px;line-height:1.9;max-width:640px;font-weight:300}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal.visible{opacity:1;transform:none}
+
+/* ---------- ABOUT ---------- */
+.about{background:var(--cream)}
+.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:90px;align-items:start}
+.about .statement{font-family:var(--serif);font-weight:300;font-size:clamp(26px,3vw,40px);line-height:1.35;font-style:italic}
+.about .statement em{color:var(--terracotta)}
+.about-right p{color:var(--sage);font-size:13.5px;line-height:2;margin-bottom:18px;font-weight:300}
+.about-right .kw{color:var(--ink);font-style:italic;font-family:var(--serif);font-size:17px}
+.rule{width:56px;height:1px;background:var(--terracotta);margin:34px 0 0}
+.about-meta{display:flex;gap:64px;margin-top:56px;padding-top:44px;border-top:1px solid var(--pearl)}
+.about-meta div{flex:1}
+.about-meta .num{font-family:var(--serif);font-size:44px;font-weight:300;color:var(--ink)}
+.about-meta .lbl{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage);margin-top:6px}
+
+/* ---------- DESTINOS ---------- */
+.destinos{background:var(--white);padding:0}
+.destinos-head{padding:130px 48px 70px;text-align:center}
+.destinos-head .section-label{text-align:center}
+.destinos-head .section-sub{margin:0 auto}
+.destino{position:relative;height:88vh;min-height:560px;display:flex;align-items:flex-end;overflow:hidden}
+.destino img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.02);transition:transform 1.6s var(--ease)}
+.destino:hover img{transform:scale(1.08)}
+.destino::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(18,37,38,.78) 100%)}
+.destino-info{position:relative;z-index:2;padding:70px 60px;width:100%;display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
+.destino-info h3{font-family:var(--serif);font-weight:300;font-size:clamp(34px,4.4vw,60px);color:#fff;letter-spacing:.02em}
+.destino-info .d-txt{color:rgba(255,255,255,.85);font-size:13px;line-height:1.8;max-width:380px;font-weight:300;margin-top:12px}
+.destino-price{text-align:right;flex-shrink:0}
+.destino-price .desde{font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--aqua)}
+.destino-price .precio{font-family:var(--serif);font-size:38px;font-weight:300;color:#fff;margin-top:4px}
+.destino-price .precio small{font-size:16px;color:rgba(255,255,255,.75)}
+.destino-cta{display:inline-block;margin-top:14px;font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:#fff;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:4px;transition:all .35s}
+.destino-cta:hover{color:var(--aqua);border-color:var(--aqua)}
+
+/* ---------- EXPERIENCIAS ---------- */
+.experiencias{background:var(--ink);color:var(--cream)}
+.experiencias .section-label{color:var(--aqua)}
+.experiencias .section-title{color:#fff}
+.experiencias .section-sub{color:rgba(255,255,255,.6)}
+.ex-list{margin-top:70px}
+.ex-row{display:flex;align-items:center;justify-content:space-between;padding:34px 4px;border-bottom:1px solid rgba(224,225,221,.14);transition:padding .5s var(--ease)}
+.ex-row:hover{padding-left:18px}
+.ex-row .ex-name{font-family:var(--serif);font-size:clamp(22px,2.6vw,34px);font-weight:300}
+.ex-row .ex-desc{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sage);text-align:right}
+.ex-row .ex-num{font-size:10px;color:var(--aqua);letter-spacing:.2em;margin-right:28px;width:28px}
+
+/* ---------- PRECIOS ---------- */
+.precios{background:var(--cream)}
+.precios-head{text-align:center;margin-bottom:70px}
+.precios-head .section-label{text-align:center}
+.precios-head .section-sub{margin:0 auto}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--pearl);border:1px solid var(--pearl)}
+.price-card{background:var(--cream);padding:52px 40px;text-align:center;transition:background .5s}
+.price-card:hover{background:#fff}
+.price-card .p-dest{font-family:var(--serif);font-size:26px;font-weight:400}
+.price-card .p-line{width:34px;height:1px;background:var(--terracotta);margin:18px auto}
+.price-card .p-desde{font-size:9px;letter-spacing:.34em;text-transform:uppercase;color:var(--sage)}
+.price-card .p-precio{font-family:var(--serif);font-size:44px;font-weight:300;margin-top:6px}
+.price-card .p-precio small{font-size:17px;color:var(--sage)}
+.price-card .p-note{font-size:11px;color:var(--sage);line-height:1.7;margin-top:12px;font-weight:300}
+.precios-note{text-align:center;color:var(--sage);font-size:12px;margin-top:34px;letter-spacing:.06em}
+.precios-note em{font-family:var(--serif);font-style:italic;color:var(--ink);font-size:15px}
+
+/* ---------- HONEYMOON BANNER ---------- */
+.honeymoon{position:relative;height:70vh;min-height:480px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.honeymoon img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.honeymoon::after{content:'';position:absolute;inset:0;background:rgba(18,37,38,.5)}
+.honeymoon .inner{position:relative;z-index:2;max-width:720px;padding:0 24px}
+.honeymoon .eyebrow{animation:none;opacity:1}
+.honeymoon h2{font-family:var(--serif);font-weight:300;font-size:clamp(32px,4.4vw,56px);color:#fff;line-height:1.15}
+.honeymoon p{color:rgba(255,255,255,.85);font-size:13px;line-height:1.9;margin-top:20px;font-weight:300}
+
+/* ---------- CONTACTO ---------- */
+.contacto{background:var(--white);padding:130px 48px}
+.contacto-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:90px}
+.contacto-left .section-sub{margin-bottom:34px}
+.c-info{display:flex;flex-direction:column;gap:20px;margin-top:36px}
+.c-info .c-item{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sage)}
+.c-info .c-item a{color:var(--ink);border-bottom:1px solid var(--terracotta);padding-bottom:2px}
+.c-info .c-item span{display:block;font-family:var(--serif);font-size:20px;text-transform:none;letter-spacing:0;margin-top:5px;color:var(--ink)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form-grid .full{grid-column:1/-1}
+.form-grid label{display:block;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage);margin-bottom:8px}
+.form-grid input,.form-grid select,.form-grid textarea{width:100%;background:transparent;border:none;border-bottom:1px solid var(--pearl);padding:13px 2px;font-family:var(--sans);font-size:14px;color:var(--ink);font-weight:300;outline:none;transition:border-color .4s;border-radius:0;-webkit-appearance:none;appearance:none}
+.form-grid input:focus,.form-grid select:focus,.form-grid textarea:focus{border-color:var(--terracotta)}
+.form-grid textarea{resize:vertical;min-height:90px}
+.form-grid select{background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0l5 6 5-6z' fill='%23637475'/></svg>") no-repeat right 6px center}
+.form-grid .btn{margin-top:26px;width:100%}
+.form-note{font-size:11px;color:var(--sage);margin-top:18px;line-height:1.8}
+.form-note a{color:var(--terracotta);border-bottom:1px solid var(--terracotta)}
+#formOk{display:none;text-align:center;padding:70px 30px}
+#formOk .ok-script{font-family:var(--script);font-size:52px;color:var(--terracotta)}
+#formOk p{font-family:var(--serif);font-size:24px;margin-top:14px}
+#formOk small{display:block;color:var(--sage);font-size:12px;margin-top:16px;line-height:1.8}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-align:center}
+.f-script{font-family:var(--script);font-size:44px;color:#fff}
+.f-caps{font-size:9px;letter-spacing:.5em;text-transform:uppercase;color:var(--sage);margin-top:4px}
+.f-links{display:flex;justify-content:center;gap:44px;margin:40px 0}
+.f-links a{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.75);transition:color .3s}
+.f-links a:hover{color:var(--aqua)}
+.f-slogan{font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--terracotta-soft);margin-bottom:36px}
+.f-mail{color:var(--aqua);font-family:var(--serif);font-size:19px;font-style:italic}
+.f-legal{margin-top:50px;padding-top:26px;border-top:1px solid rgba(224,225,221,.12);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:960px){
+  .nav-links{display:none}
+  #nav{padding:20px 24px}
+  #nav.scrolled{padding:12px 24px}
+  .nav-slogan{display:none}
+  section{padding:90px 24px}
+  .about-grid,.contacto-grid{grid-template-columns:1fr;gap:50px}
+  .about-meta{flex-direction:column;gap:30px}
+  .destino-info{flex-direction:column;align-items:flex-start;padding:50px 28px}
+  .destino-price{text-align:left}
+  .price-grid{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .ex-row{flex-direction:column;align-items:flex-start;gap:10px;text-align:left}
+  .ex-row .ex-desc{text-align:left}
+  .f-links{flex-wrap:wrap;gap:22px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-slogan">Boutique Luxury Travel</div>
+  <a href="#" class="brand">
+    <span class="b-script">Algo Mágico</span>
+    <span class="b-caps">Viajes</span>
+  </a>
+  <div class="nav-links">
+    <a href="#destinos">Destinos</a>
+    <a href="#experiencias">Experiencias</a>
+    <a href="#precios">Inversión</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#contacto" class="cta-nav">Planifica tu viaje</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=2000&q=80" alt="Atardecer sobre las Maldivas">
+  <div class="hero-content">
+    <div class="eyebrow">Boutique Luxury Travel</div>
+    <h1>Viajes diseñados para quien busca algo diferente</h1>
+    <p class="tagline">Itinerarios exclusivos · Acceso privado · Atención personalizada</p>
+    <div class="hero-ctas">
+      <a href="#contacto" class="btn btn-solid">Diseña tu viaje</a>
+      <a href="#destinos" class="btn btn-ghost">Explorar destinos</a>
+    </div>
+  </div>
+  <div class="scroll-hint">Descubrir</div>
+</header>
+
+<!-- ABOUT -->
+<section class="about" id="quienes">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <div class="section-label">Quiénes somos</div>
+      <p class="statement">No somos una agencia. Somos tu <em>concierge de lujo</em> personal.</p>
+      <div class="rule"></div>
+    </div>
+    <div class="about-right reveal">
+      <p>Cada viaje que diseñamos nace de una conversación. Queremos conocer cómo sueñas, qué te emociona, qué no negocias. Solo entonces dibujamos un itinerario <span class="kw">exclusivo</span> a tu medida.</p>
+      <p>Trabajamos exclusivamente con destinos <span class="kw">exóticos</span> de alto valor experiencial: Maldivas, Seychelles, Polinesia Francesa, Tanzania, Japón y Mauricio. Seis destinos, una sola promesa: <span class="kw">lujo experiencial</span> de principio a fin.</p>
+      <p>Cada propiedad ha sido evaluada por nuestro equipo. No ofrecemos lo que no conocemos. <span class="kw">Premium</span> por elección, <span class="kw">boutique</span> por naturaleza.</p>
+      <div class="about-meta">
+        <div><div class="num">6</div><div class="lbl">Destinos curados</div></div>
+        <div><div class="num">24/7</div><div class="lbl">Atención real</div></div>
+        <div><div class="num">100%</div><div class="lbl">A medida</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINOS -->
+<section class="destinos" id="destinos">
+  <div class="destinos-head reveal">
+    <div class="section-label">Lugares extraordinarios</div>
+    <h2 class="section-title">Seis destinos donde el lujo experiencial alcanza su máxima expresión</h2>
+    <p class="section-sub">Una selección curada de destinos exóticos y premium, elegidos por su belleza, su privacidad y su capacidad de emocionar.</p>
+  </div>
+
+  <div class="destino reveal">
+    <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=2000&q=80" alt="Villas sobre el agua en Maldivas">
+    <div class="destino-info">
+      <div>
+        <h3>Maldivas</h3>
+        <p class="d-txt">Despertar en una villa sobre el agua turquesa. Desayunos flotantes, spas privados y el silencio absoluto del Índico. Naturaleza en estado puro.</p>
+      </div>
+      <div class="destino-price">
+        <div class="desde">Nuestros viajes comienzan desde</div>
+        <div class="precio">5.000€ <small>por persona</small></div>
+        <a href="#contacto" class="destino-cta">Descubrir</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="destino reveal">
+    <img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=2000&q=80" alt="Playas de Seychelles">
+    <div class="destino-info">
+      <div>
+        <h3>Seychelles</h3>
+        <p class="d-txt">La villa más privada del Índico. Granito rosado, selva virgen y playas que no aparecen en ninguna guía.</p>
+      </div>
+      <div class="destino-price">
+        <div class="desde">Nuestros viajes comienzan desde</div>
+        <div class="precio">6.500€ <small>por persona</small></div>
+        <a href="#contacto" class="destino-cta">Descubrir</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="destino reveal">
+    <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=2000&q=80" alt="Laguna de Bora Bora, Polinesia Francesa">
+    <div class="destino-info">
+      <div>
+        <h3>Polinesia Francesa</h3>
+        <p class="d-txt">Bora Bora, Moorea, Rangiroa. El último paraíso verdaderamente remoto del planeta.</p>
+      </div>
+      <div class="destino-price">
+        <div class="desde">Nuestros viajes comienzan desde</div>
+        <div class="precio">7.000€ <small>por persona</small></div>
+        <a href="#contacto" class="destino-cta">Descubrir</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="destino reveal">
+    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=2000&q=80" alt="Elefantes en el Serengeti, Tanzania">
+    <div class="destino-info">
+      <div>
+        <h3>Tanzania</h3>
+        <p class="d-txt">Despertarte viendo jirafas desde tu lodge privado en el Serengeti. El mejor safari para una luna de miel.</p>
+      </div>
+      <div class="destino-price">
+        <div class="desde">Nuestros viajes comienzan desde</div>
+        <div class="precio">8.000€ <small>por persona</small></div>
+        <a href="#contacto" class="destino-cta">Descubrir</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="destino reveal">
+    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=2000&q=80" alt="Monte Fuji y torii en Japón">
+    <div class="destino-info">
+      <div>
+        <h3>Japón</h3>
+        <p class="d-txt">Ryokans secretos, cenas omakase privadas y acceso a experiencias que no se encuentran en internet.</p>
+      </div>
+      <div class="destino-price">
+        <div class="desde">Nuestros viajes comienzan desde</div>
+        <div class="precio">6.000€ <small>por persona</small></div>
+        <a href="#contacto" class="destino-cta">Descubrir</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="destino reveal">
+    <img src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=2000&q=80" alt="Costa de Mauricio">
+    <div class="destino-info">
+      <div>
+        <h3>Mauricio</h3>
+        <p class="d-txt">Lagunas esmeralda, montañas verdes y resorts de autor. El Índico en su versión más íntima.</p>
+      </div>
+      <div class="destino-price">
+        <div class="desde">Nuestros viajes comienzan desde</div>
+        <div class="precio">5.500€ <small>por persona</small></div>
+        <a href="#contacto" class="destino-cta">Descubrir</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCIAS -->
+<section class="experiencias" id="experiencias">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="section-label">Detalles que lo cambian todo</div>
+      <h2 class="section-title">Lo que no encuentras en Google</h2>
+      <p class="section-sub">No vendemos destinos. Vendemos escenas que recordarás toda la vida.</p>
+    </div>
+    <div class="ex-list">
+      <div class="ex-row reveal"><span class="ex-num">01</span><div class="ex-name">Business Class</div><div class="ex-desc">Vuelos premium incluidos</div></div>
+      <div class="ex-row reveal"><span class="ex-num">02</span><div class="ex-name">Villas privadas</div><div class="ex-desc">Frente al Índico</div></div>
+      <div class="ex-row reveal"><span class="ex-num">03</span><div class="ex-name">Transfers exclusivos</div><div class="ex-desc">Hidroavión · Yate · Helicóptero</div></div>
+      <div class="ex-row reveal"><span class="ex-num">04</span><div class="ex-name">Spas privados</div><div class="ex-desc">& cenas en la arena</div></div>
+      <div class="ex-row reveal"><span class="ex-num">05</span><div class="ex-name">Lounges VIP</div><div class="ex-desc">Acceso garantizado</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HONEYMOON BANNER -->
+<div class="honeymoon">
+  <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=2000&q=80" alt="Pareja en una playa al atardecer">
+  <div class="inner reveal">
+    <div class="eyebrow">Honeymoon · Naturaleza · Exclusivo</div>
+    <h2>El viaje con el que empezaréis el resto de vuestras vidas</h2>
+    <p>Lunas de miel diseñadas en privado: villas sobre el agua, safaris íntimos y atardeceres que no se olvidan. Contadnos vuestra historia y la convertimos en viaje.</p>
+    <div style="margin-top:34px"><a href="#contacto" class="btn btn-solid">Diseñar mi luna de miel</a></div>
+  </div>
+</div>
+
+<!-- PRECIOS -->
+<section class="precios" id="precios">
+  <div class="wrap">
+    <div class="precios-head reveal">
+      <div class="section-label">Precios orientativos</div>
+      <h2 class="section-title">Para empezar a soñar</h2>
+      <p class="section-sub">Nuestros viajes suelen comenzar desde las siguientes cifras. Cada itinerario se diseña a medida — el precio final depende de temporada, hoteles y experiencias elegidas.</p>
+    </div>
+    <div class="price-grid reveal">
+      <div class="price-card"><div class="p-dest">Maldivas</div><div class="p-line"></div><div class="p-desde">Desde</div><div class="p-precio">5.000€ <small>/pax</small></div><div class="p-note">Villa sobre el agua · 7 noches</div></div>
+      <div class="price-card"><div class="p-dest">Seychelles</div><div class="p-line"></div><div class="p-desde">Desde</div><div class="p-precio">6.500€ <small>/pax</small></div><div class="p-note">Villa privada · 8 noches</div></div>
+      <div class="price-card"><div class="p-dest">Polinesia Francesa</div><div class="p-line"></div><div class="p-desde">Desde</div><div class="p-precio">7.000€ <small>/pax</small></div><div class="p-note">Bora Bora · 9 noches</div></div>
+      <div class="price-card"><div class="p-dest">Tanzania + Zanzíbar</div><div class="p-line"></div><div class="p-desde">Desde</div><div class="p-precio">8.000€ <small>/pax</small></div><div class="p-note">Safari + playa · 10 noches</div></div>
+      <div class="price-card"><div class="p-dest">Japón</div><div class="p-line"></div><div class="p-desde">Desde</div><div class="p-precio">6.000€ <small>/pax</small></div><div class="p-note">Ruta premium · 8 noches</div></div>
+      <div class="price-card"><div class="p-dest">Mauricio</div><div class="p-line"></div><div class="p-desde">Desde</div><div class="p-precio">5.500€ <small>/pax</small></div><div class="p-note">Resort de autor · 7 noches</div></div>
+    </div>
+    <p class="precios-note reveal"><em>Viajes de lujo experiencial</em> · Itinerarios exclusivos · Precios orientativos por persona en habitación doble</p>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contacto" id="contacto">
+  <div class="wrap contacto-grid">
+    <div class="contacto-left reveal">
+      <div class="section-label">Contacto</div>
+      <h2 class="section-title">Cuéntanos cómo lo sueñas</h2>
+      <p class="section-sub">Cada viaje que diseñamos nace de una conversación. Comparte tu idea y nuestro equipo te responderá en menos de 24 horas con una primera propuesta.</p>
+      <div class="c-info">
+        <div class="c-item">Escríbenos<span><a href="mailto:algomagicoviajes@gmail.com">algomagicoviajes@gmail.com</a></span></div>
+        <div class="c-item">Atención<span>Real, directa y 24/7 durante tu viaje</span></div>
+        <div class="c-item">Sede<span>Parla, Madrid — diseñando viajes para todo el mundo</span></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <form class="form-grid" id="tripForm" novalidate>
+        <div><label for="nombre">Nombre completo</label><input type="text" id="nombre" name="nombre" required></div>
+        <div><label for="email">Correo electrónico</label><input type="email" id="email" name="email" required></div>
+        <div><label for="telefono">Teléfono</label><input type="tel" id="telefono" name="telefono"></div>
+        <div><label for="destino">Destino</label><select id="destino" name="destino"><option value="">Selecciona</option><option>Maldivas</option><option>Seychelles</option><option>Polinesia Francesa</option><option>Tanzania</option><option>Japón</option><option>Mauricio</option><option>Aún no lo sé</option></select></div>
+        <div><label for="ocasion">Ocasión</label><select id="ocasion" name="ocasion"><option value="">Selecciona</option><option>Luna de miel</option><option>Aniversario</option><option>Viaje familiar</option><option>Escape romántico</option><option>Celebración especial</option><option>Otro</option></select></div>
+        <div><label for="personas">Número de personas</label><input type="text" id="personas" name="personas" placeholder="2 adultos"></div>
+        <div><label for="fechas">Fechas aproximadas</label><input type="text" id="fechas" name="fechas" placeholder="Ej: marzo 2027"></div>
+        <div><label for="presupuesto">Presupuesto total orientativo</label><select id="presupuesto" name="presupuesto"><option value="">Selecciona</option><option>5.000€ – 10.000€</option><option>10.000€ – 20.000€</option><option>20.000€ – 40.000€</option><option>Más de 40.000€</option></select></div>
+        <div><label for="alojamiento">Tipo de alojamiento</label><select id="alojamiento" name="alojamiento"><option value="">Selecciona</option><option>Villa sobre el agua</option><option>Villa privada</option><option>Resort de lujo</option><option>Lodge safari</option><option>Ryokan / hotel boutique</option></select></div>
+        <div><label for="contacto-pref">Forma de contacto preferida</label><select id="contacto-pref" name="contacto-pref"><option value="">Selecciona</option><option>Email</option><option>Teléfono</option><option>WhatsApp</option></select></div>
+        <div class="full"><label for="descripcion">Describe tu viaje ideal</label><textarea id="descripcion" name="descripcion" placeholder="Cuéntanos qué te emociona, qué no negocias..."></textarea></div>
+        <div class="full"><button type="submit" class="btn btn-solid">Solicitar propuesta</button></div>
+      </form>
+      <p class="form-note">Al enviar, completarás nuestro formulario de diseño de viaje — nos llega directo y te respondemos con una propuesta inicial. <a href="https://forms.gle/itsAo9ioJbVuJqSu6" target="_blank" rel="noopener">Abrir formulario completo →</a></p>
+      <div id="formOk">
+        <div class="ok-script">Gracias</div>
+        <p>Tu viaje empieza a tomar forma</p>
+        <small>Se ha abierto nuestro formulario de diseño en una pestaña nueva. Completa las preguntas y te enviaremos una primera propuesta en menos de 24 horas.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-script">Algo Mágico</div>
+  <div class="f-caps">Viajes</div>
+  <div class="f-links">
+    <a href="#destinos">Destinos</a>
+    <a href="#experiencias">Experiencias</a>
+    <a href="#precios">Inversión</a>
+    <a href="#quienes">Quiénes somos</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+  <div class="f-slogan">Boutique Luxury Travel</div>
+  <a class="f-mail" href="mailto:algomagicoviajes@gmail.com">algomagicoviajes@gmail.com</a>
+  <div class="f-legal">Algo Mágico Viajes · Destinos exóticos · Premium · Exclusivo · Honeymoon · Naturaleza · Lujo experiencial · Boutique</div>
+</footer>
+
+<script>
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), {passive:true});
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  reveals.forEach(r => io.observe(r));
+
+  // Form → Google Form de diseño (funnel del cliente)
+  const FORM_URL = 'https://forms.gle/itsAo9ioJbVuJqSu6';
+  document.getElementById('tripForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const data = {
+      nombre: document.getElementById('nombre').value,
+      email: document.getElementById('email').value,
+      destino: document.getElementById('destino').value || 'Sin especificar'
+    };
+    window.open(FORM_URL, '_blank');
+    this.style.display = 'none';
+    document.getElementById('formOk').style.display = 'block';
+    console.log('Lead:', JSON.stringify(data));
+  });
+</script>
+</body>
+</html>
