@@ -163,6 +163,25 @@ section{padding:130px 48px}
 .ex-row .ex-desc{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sage);text-align:right}
 .ex-row .ex-num{font-size:10px;color:var(--aqua);letter-spacing:.2em;margin-right:28px;width:28px}
 
+/* ---------- MARQUEE ---------- */
+.marquee{background:var(--ink);overflow:hidden;padding:30px 0;border-top:1px solid rgba(224,225,221,.1);border-bottom:1px solid rgba(224,225,221,.1)}
+.marquee-track{display:flex;width:max-content;white-space:nowrap;animation:marqueeMove 42s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-track span{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(20px,2.4vw,30px);color:rgba(255,255,255,.92);display:flex;align-items:center}
+.marquee-track span i{font-style:normal;color:var(--terracotta-soft);margin:0 34px;font-size:11px;letter-spacing:.2em}
+@keyframes marqueeMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- TESTIMONIOS ---------- */
+.testimonios{background:var(--cream);padding:130px 48px}
+.testimonios .section-sub{margin-bottom:70px}
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:64px}
+.t-item{position:relative;padding-top:8px}
+.t-item .t-mark{font-family:var(--serif);font-size:56px;line-height:.6;color:var(--terracotta);display:block;margin-bottom:22px}
+.t-item blockquote{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(17px,1.6vw,21px);line-height:1.65;color:var(--ink)}
+.t-item .t-rule{width:34px;height:1px;background:var(--terracotta);margin:26px 0 18px}
+.t-item .t-name{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage)}
+.t-item .t-dest{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--terracotta-soft);margin-top:7px}
+
 /* ---------- HONEYMOON BANNER ---------- */
 .honeymoon{position:relative;height:70vh;min-height:480px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
 .honeymoon img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -237,6 +256,7 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
   .exp-item{flex-direction:column;gap:4px;align-items:flex-start}
   .exp-item small{text-align:left}
   .dest-data{grid-template-columns:1fr}
+  .t-grid{grid-template-columns:1fr;gap:44px}
 }
 </style>
 </head>
@@ -349,7 +369,6 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
           <div class="dd"><span class="dd-l">Mejor época</span><span class="dd-v">Noviembre – Abril</span></div>
           <div class="dd"><span class="dd-l">Acceso</span><span class="dd-v">Hidroavión o lancha desde Malé</span></div>
           <div class="dd"><span class="dd-l">Estancia ideal</span><span class="dd-v">7 – 9 noches</span></div>
-          <div class="dd"><span class="dd-l">Visado</span><span class="dd-v">No necesario</span></div>
         </div>
         <a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a>
       </div>
@@ -374,7 +393,6 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
           <div class="dd"><span class="dd-l">Mejor época</span><span class="dd-v">Abril – Mayo · Oct – Nov</span></div>
           <div class="dd"><span class="dd-l">Acceso</span><span class="dd-v">Vuelo internacional + transfer privado</span></div>
           <div class="dd"><span class="dd-l">Estancia ideal</span><span class="dd-v">8 – 10 noches</span></div>
-          <div class="dd"><span class="dd-l">Visado</span><span class="dd-v">No necesario</span></div>
         </div>
         <a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a>
       </div>
@@ -399,7 +417,6 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
           <div class="dd"><span class="dd-l">Mejor época</span><span class="dd-v">Mayo – Octubre</span></div>
           <div class="dd"><span class="dd-l">Acceso</span><span class="dd-v">Vuelo internacional + conexión a Bora Bora</span></div>
           <div class="dd"><span class="dd-l">Estancia ideal</span><span class="dd-v">10 – 14 noches</span></div>
-          <div class="dd"><span class="dd-l">Visado</span><span class="dd-v">No necesario</span></div>
         </div>
         <a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a>
       </div>
@@ -424,7 +441,6 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
           <div class="dd"><span class="dd-l">Mejor época</span><span class="dd-v">Junio – Octubre (migración)</span></div>
           <div class="dd"><span class="dd-l">Acceso</span><span class="dd-v">Vuelo internacional + avioneta al Serengeti</span></div>
           <div class="dd"><span class="dd-l">Estancia ideal</span><span class="dd-v">9 – 12 noches</span></div>
-          <div class="dd"><span class="dd-l">Visado</span><span class="dd-v">E-visa (gestión incluida)</span></div>
         </div>
         <a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a>
       </div>
@@ -449,7 +465,6 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
           <div class="dd"><span class="dd-l">Mejor época</span><span class="dd-v">Mar – May (cerezos) · Oct – Nov</span></div>
           <div class="dd"><span class="dd-l">Acceso</span><span class="dd-v">Vuelo internacional + Shinkansen</span></div>
           <div class="dd"><span class="dd-l">Estancia ideal</span><span class="dd-v">10 – 12 noches</span></div>
-          <div class="dd"><span class="dd-l">Visado</span><span class="dd-v">No necesario (90 días)</span></div>
         </div>
         <a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a>
       </div>
@@ -474,7 +489,6 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
           <div class="dd"><span class="dd-l">Mejor época</span><span class="dd-v">Mayo – Diciembre</span></div>
           <div class="dd"><span class="dd-l">Acceso</span><span class="dd-v">Vuelo internacional + transfer privado</span></div>
           <div class="dd"><span class="dd-l">Estancia ideal</span><span class="dd-v">7 – 9 noches</span></div>
-          <div class="dd"><span class="dd-l">Visado</span><span class="dd-v">No necesario</span></div>
         </div>
         <a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a>
       </div>
@@ -501,6 +515,14 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
   </div>
 </section>
 
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Maldivas <i>✦</i></span><span>Seychelles <i>✦</i></span><span>Polinesia Francesa <i>✦</i></span><span>Tanzania <i>✦</i></span><span>Japón <i>✦</i></span><span>Mauricio <i>✦</i></span>
+    <span>Maldivas <i>✦</i></span><span>Seychelles <i>✦</i></span><span>Polinesia Francesa <i>✦</i></span><span>Tanzania <i>✦</i></span><span>Japón <i>✦</i></span><span>Mauricio <i>✦</i></span>
+  </div>
+</div>
+
 <!-- HONEYMOON BANNER -->
 <div class="honeymoon">
   <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=2000&q=80" alt="Pareja en una playa al atardecer">
@@ -511,6 +533,22 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
     <div style="margin-top:34px"><a href="#contacto" class="btn btn-solid">Diseñar mi luna de miel</a></div>
   </div>
 </div>
+
+<!-- TESTIMONIOS -->
+<section class="testimonios" id="testimonios">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="section-label">Lo que dicen nuestros viajeros</div>
+      <h2 class="section-title">Historias que nos devuelven cada día</h2>
+      <p class="section-sub">No hacemos catálogos. Hacemos viajes que se recuerdan en voz baja, años después.</p>
+    </div>
+    <div class="t-grid">
+      <div class="t-item reveal"><span class="t-mark">"</span><blockquote>Nuestra luna de miel en Maldivas fue perfecta en cada detalle. Ni una sola vez tuvimos que pensar en nada.</blockquote><div class="t-rule"></div><div class="t-name">Lucía &amp; Marco</div><div class="t-dest">Maldivas</div></div>
+      <div class="t-item reveal"><span class="t-mark">"</span><blockquote>El safari superó todo lo que habíamos imaginado. La organización fue invisible, y eso lo es todo.</blockquote><div class="t-rule"></div><div class="t-name">Ana</div><div class="t-dest">Tanzania</div></div>
+      <div class="t-item reveal"><span class="t-mark">"</span><blockquote>Volvimos con la sensación de que alguien nos había cuidado cada segundo. No es un viaje, es otra forma de viajar.</blockquote><div class="t-rule"></div><div class="t-name">Javier &amp; Elena</div><div class="t-dest">Polinesia Francesa</div></div>
+    </div>
+  </div>
+</section>
 
 <!-- CONTACTO -->
 <section class="contacto" id="contacto">
