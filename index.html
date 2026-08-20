@@ -90,6 +90,7 @@ a{color:inherit;text-decoration:none}
 .hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(42px,7vw,88px);line-height:1.05;color:#fff;letter-spacing:.01em;margin-bottom:22px;opacity:0;animation:fadeUp 1.2s var(--ease) .55s forwards}
 .hero .tagline{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:44px;opacity:0;animation:fadeUp 1.2s var(--ease) .8s forwards}
 .hero-ctas{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp 1.2s var(--ease) 1.05s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
 .btn{display:inline-block;padding:16px 42px;font-size:10px;letter-spacing:.26em;text-transform:uppercase;transition:all .45s var(--ease);cursor:pointer;border:none}
 .btn-solid{background:var(--terracotta);color:#fff}
 .btn-solid:hover{background:var(--ink)}
@@ -121,24 +122,35 @@ section{padding:130px 48px}
 .about-meta .num{font-family:var(--serif);font-size:44px;font-weight:300;color:var(--ink)}
 .about-meta .lbl{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage);margin-top:6px}
 
-/* ---------- DESTINOS ---------- */
+/* ---------- DESTINOS SELECTOR ---------- */
 .destinos{background:var(--white);padding:0}
-.destinos-head{padding:130px 48px 70px;text-align:center}
+.destinos-head{padding:130px 48px 60px;text-align:center}
 .destinos-head .section-label{text-align:center}
 .destinos-head .section-sub{margin:0 auto}
-.destino{position:relative;height:88vh;min-height:560px;display:flex;align-items:flex-end;overflow:hidden}
-.destino img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.02);transition:transform 1.6s var(--ease)}
-.destino:hover img{transform:scale(1.08)}
-.destino::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(18,37,38,.78) 100%)}
-.destino-info{position:relative;z-index:2;padding:70px 60px;width:100%;display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
-.destino-info h3{font-family:var(--serif);font-weight:300;font-size:clamp(34px,4.4vw,60px);color:#fff;letter-spacing:.02em}
-.destino-info .d-txt{color:rgba(255,255,255,.85);font-size:13px;line-height:1.8;max-width:380px;font-weight:300;margin-top:12px}
-.destino-price{text-align:right;flex-shrink:0}
-.destino-price .desde{font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--aqua)}
-.destino-price .precio{font-family:var(--serif);font-size:38px;font-weight:300;color:#fff;margin-top:4px}
-.destino-price .precio small{font-size:16px;color:rgba(255,255,255,.75)}
-.destino-cta{display:inline-block;margin-top:14px;font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:#fff;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:4px;transition:all .35s}
-.destino-cta:hover{color:var(--aqua);border-color:var(--aqua)}
+.dest-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:0 48px 66px}
+.dest-tab{background:none;border:none;border-bottom:1px solid var(--pearl);padding:13px 26px;font-family:var(--sans);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--sage);cursor:pointer;transition:color .35s,border-color .35s}
+.dest-tab .tnum{color:var(--terracotta);margin-right:9px}
+.dest-tab:hover{color:var(--ink)}
+.dest-tab.active{color:var(--terracotta);border-bottom-color:var(--terracotta)}
+.dest-panel{display:none}
+.dest-panel.active{display:grid;grid-template-columns:1.12fr .88fr;gap:74px;align-items:center;animation:panelIn .9s var(--ease)}
+@keyframes panelIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.dest-media{position:relative;overflow:hidden}
+.dest-media img{width:100%;height:100%;max-height:660px;object-fit:cover;aspect-ratio:4/4.4}
+.dest-pill{position:absolute;bottom:22px;left:22px;background:rgba(18,37,38,.82);backdrop-filter:blur(8px);color:#fff;font-size:10px;letter-spacing:.24em;text-transform:uppercase;padding:13px 20px}
+.dest-content .section-label{margin-bottom:16px}
+.dest-name{font-family:var(--serif);font-weight:300;font-size:clamp(30px,3.4vw,46px);line-height:1.15;margin-bottom:20px}
+.dest-desc{color:var(--sage);font-size:14px;line-height:1.9;margin-bottom:34px;font-weight:300}
+.exp-title{font-size:9.5px;letter-spacing:.4em;text-transform:uppercase;color:var(--terracotta);margin-bottom:6px}
+.exp-item{padding:15px 0;border-top:1px solid var(--pearl);display:flex;justify-content:space-between;gap:20px;align-items:baseline}
+.exp-item span{font-family:var(--serif);font-size:19px}
+.exp-item small{font-size:10.5px;color:var(--sage);letter-spacing:.04em;text-align:right}
+.dest-data{display:grid;grid-template-columns:1fr 1fr;margin:32px 0 30px;border-top:1px solid var(--pearl);border-left:1px solid var(--pearl)}
+.dd{padding:15px 18px;border-right:1px solid var(--pearl);border-bottom:1px solid var(--pearl)}
+.dd .dd-l{display:block;font-size:8.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--sage);margin-bottom:6px}
+.dd .dd-v{font-family:var(--serif);font-size:18px}
+.dest-cta{margin-top:6px}
+.destinos .wrap{padding:0 48px 130px}
 
 /* ---------- EXPERIENCIAS ---------- */
 .experiencias{background:var(--ink);color:var(--cream)}
@@ -221,13 +233,18 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
   section{padding:90px 24px}
   .about-grid,.contacto-grid{grid-template-columns:1fr;gap:50px}
   .about-meta{flex-direction:column;gap:30px}
-  .destino-info{flex-direction:column;align-items:flex-start;padding:50px 28px}
-  .destino-price{text-align:left}
   .price-grid{grid-template-columns:1fr}
   .form-grid{grid-template-columns:1fr}
   .ex-row{flex-direction:column;align-items:flex-start;gap:10px;text-align:left}
   .ex-row .ex-desc{text-align:left}
   .f-links{flex-wrap:wrap;gap:22px}
+  .destinos-head{padding:90px 24px 40px}
+  .dest-tabs{padding:0 24px 44px;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch}
+  .dest-panel.active{grid-template-columns:1fr;gap:34px}
+  .destinos .wrap{padding:0 24px 90px}
+  .exp-item{flex-direction:column;gap:4px;align-items:flex-start}
+  .exp-item small{text-align:left}
+  .dest-data{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -304,7 +321,7 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
   </div>
 </section>
 
-<!-- DESTINOS -->
+<!-- DESTINOS SELECTOR -->
 <section class="destinos" id="destinos">
   <div class="destinos-head reveal">
     <div class="section-label">Lugares extraordinarios</div>
@@ -312,94 +329,173 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
     <p class="section-sub">Una selección curada de destinos exóticos y premium, elegidos por su belleza, su privacidad y su capacidad de emocionar.</p>
   </div>
 
-  <div class="destino reveal">
-    <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=2000&q=80" alt="Villas sobre el agua en Maldivas">
-    <div class="destino-info">
-      <div>
-        <h3>Maldivas</h3>
-        <p class="d-txt">Despertar en una villa sobre el agua turquesa. Desayunos flotantes, spas privados y el silencio absoluto del Índico. Naturaleza en estado puro.</p>
-      </div>
-      <div class="destino-price">
-        <div class="desde">Nuestros viajes comienzan desde</div>
-        <div class="precio">5.000€ <small>por persona</small></div>
-        <a href="#contacto" class="destino-cta">Descubrir</a>
-      </div>
-    </div>
+  <div class="dest-tabs reveal" role="tablist" aria-label="Destinos">
+    <button class="dest-tab active" data-dest="maldives" role="tab" aria-selected="true"><span class="tnum">01</span>Maldivas</button>
+    <button class="dest-tab" data-dest="seychelles" role="tab" aria-selected="false"><span class="tnum">02</span>Seychelles</button>
+    <button class="dest-tab" data-dest="polynesia" role="tab" aria-selected="false"><span class="tnum">03</span>Polinesia Francesa</button>
+    <button class="dest-tab" data-dest="tanzania" role="tab" aria-selected="false"><span class="tnum">04</span>Tanzania</button>
+    <button class="dest-tab" data-dest="japan" role="tab" aria-selected="false"><span class="tnum">05</span>Japón</button>
+    <button class="dest-tab" data-dest="mauritius" role="tab" aria-selected="false"><span class="tnum">06</span>Mauricio</button>
   </div>
 
-  <div class="destino reveal">
-    <img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=2000&q=80" alt="Playas de Seychelles">
-    <div class="destino-info">
-      <div>
-        <h3>Seychelles</h3>
-        <p class="d-txt">La villa más privada del Índico. Granito rosado, selva virgen y playas que no aparecen en ninguna guía.</p>
-      </div>
-      <div class="destino-price">
-        <div class="desde">Nuestros viajes comienzan desde</div>
-        <div class="precio">6.500€ <small>por persona</small></div>
-        <a href="#contacto" class="destino-cta">Descubrir</a>
-      </div>
-    </div>
-  </div>
+  <div class="wrap">
 
-  <div class="destino reveal">
-    <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=2000&q=80" alt="Laguna de Bora Bora, Polinesia Francesa">
-    <div class="destino-info">
-      <div>
-        <h3>Polinesia Francesa</h3>
-        <p class="d-txt">Bora Bora, Moorea, Rangiroa. El último paraíso verdaderamente remoto del planeta.</p>
+    <div class="dest-panel active" id="dest-maldives" role="tabpanel">
+      <div class="dest-media">
+        <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1600&q=80" alt="Villas sobre el agua en Maldivas">
+        <div class="dest-pill">Desde 5.000€ / pax</div>
       </div>
-      <div class="destino-price">
-        <div class="desde">Nuestros viajes comienzan desde</div>
-        <div class="precio">7.000€ <small>por persona</small></div>
-        <a href="#contacto" class="destino-cta">Descubrir</a>
+      <div class="dest-content">
+        <div class="section-label">01 — Maldivas</div>
+        <h3 class="dest-name">El silencio absoluto sobre el Índico</h3>
+        <p class="dest-desc">26 atolones, 1.192 islas de arena blanca y el agua más turquesa del planeta. Despertar en una villa sobre el mar, desayunos flotantes y la sensación de que el mundo se detiene. Naturaleza en estado puro, elevada a arte.</p>
+        <div class="dest-exp">
+          <div class="exp-title">Experiencias top</div>
+          <div class="exp-item"><span>Desayuno flotante en tu villa</span><small>Servido al amanecer sobre aguas cristalinas</small></div>
+          <div class="exp-item"><span>Cena privada en un banco de arena</span><small>A la luz de las velas, solo para vosotros</small></div>
+          <div class="exp-item"><span>Spa submarino</span><small>Masajes con el arrecife a través del cristal</small></div>
+          <div class="exp-item"><span>Mantarrayas en Hanifaru Bay</span><small>Snorkel con las gigantes del atolón Baa</small></div>
+        </div>
+        <div class="dest-data">
+          <div class="dd"><span class="dd-l">Mejor época</span><span class="dd-v">Noviembre – Abril</span></div>
+          <div class="dd"><span class="dd-l">Vuelo</span><span class="dd-v">~11h directo</span></div>
+          <div class="dd"><span class="dd-l">Estancia ideal</span><span class="dd-v">7 – 9 noches</span></div>
+          <div class="dd"><span class="dd-l">Visado</span><span class="dd-v">No necesario</span></div>
+        </div>
+        <a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a>
       </div>
     </div>
-  </div>
 
-  <div class="destino reveal">
-    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=2000&q=80" alt="Elefantes en el Serengeti, Tanzania">
-    <div class="destino-info">
-      <div>
-        <h3>Tanzania</h3>
-        <p class="d-txt">Despertarte viendo jirafas desde tu lodge privado en el Serengeti. El mejor safari para una luna de miel.</p>
+    <div class="dest-panel" id="dest-seychelles" role="tabpanel">
+      <div class="dest-media">
+        <img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=1600&q=80" alt="Playas de granito rosa en Seychelles">
+        <div class="dest-pill">Desde 6.500€ / pax</div>
       </div>
-      <div class="destino-price">
-        <div class="desde">Nuestros viajes comienzan desde</div>
-        <div class="precio">8.000€ <small>por persona</small></div>
-        <a href="#contacto" class="destino-cta">Descubrir</a>
+      <div class="dest-content">
+        <div class="section-label">02 — Seychelles</div>
+        <h3 class="dest-name">La villa más privada del Índico</h3>
+        <p class="dest-desc">Granito rosa, selva virgen y playas que no aparecen en ninguna guía. Un archipiélago de 115 islas donde la privacidad es la auténtica moneda de cambio y el océano lo gobierna todo.</p>
+        <div class="dest-exp">
+          <div class="exp-title">Experiencias top</div>
+          <div class="exp-item"><span>Villa privada con mayordomo</span><small>Isla de Félicité, la más exclusiva del archipiélago</small></div>
+          <div class="exp-item"><span>Día en barco privado</span><small>Anse Source d'Argent y las islas de La Digue</small></div>
+          <div class="exp-item"><span>Buceo en el arrecife</span><small>Tortugas, tiburones de arrecife y jardines de coral</small></div>
+          <div class="exp-item"><span>Picnic en isla desierta</span><small>Chef privado y arena para vosotros solos</small></div>
+        </div>
+        <div class="dest-data">
+          <div class="dd"><span class="dd-l">Mejor época</span><span class="dd-v">Abril – Mayo · Oct – Nov</span></div>
+          <div class="dd"><span class="dd-l">Vuelo</span><span class="dd-v">~11h con escala</span></div>
+          <div class="dd"><span class="dd-l">Estancia ideal</span><span class="dd-v">8 – 10 noches</span></div>
+          <div class="dd"><span class="dd-l">Visado</span><span class="dd-v">No necesario</span></div>
+        </div>
+        <a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a>
       </div>
     </div>
-  </div>
 
-  <div class="destino reveal">
-    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=2000&q=80" alt="Monte Fuji y torii en Japón">
-    <div class="destino-info">
-      <div>
-        <h3>Japón</h3>
-        <p class="d-txt">Ryokans secretos, cenas omakase privadas y acceso a experiencias que no se encuentran en internet.</p>
+    <div class="dest-panel" id="dest-polynesia" role="tabpanel">
+      <div class="dest-media">
+        <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=1600&q=80" alt="Laguna de Bora Bora, Polinesia Francesa">
+        <div class="dest-pill">Desde 7.000€ / pax</div>
       </div>
-      <div class="destino-price">
-        <div class="desde">Nuestros viajes comienzan desde</div>
-        <div class="precio">6.000€ <small>por persona</small></div>
-        <a href="#contacto" class="destino-cta">Descubrir</a>
+      <div class="dest-content">
+        <div class="section-label">03 — Polinesia Francesa</div>
+        <h3 class="dest-name">El último paraíso verdaderamente remoto</h3>
+        <p class="dest-desc">Bora Bora, Moorea, Rangiroa. Islas volcánicas coronadas de selva, lagunas imposibles y el punto del planeta donde el tiempo pierde el significado. La travesía más larga del mundo para llegar al sitio más difícil de abandonar.</p>
+        <div class="dest-exp">
+          <div class="exp-title">Experiencias top</div>
+          <div class="exp-item"><span>Villa sobre el agua en Bora Bora</span><small>Con vistas al monte Otemanu</small></div>
+          <div class="exp-item"><span>Yate privado por las lagunas</span><small>Moorea y sus montañas esmeralda</small></div>
+          <div class="exp-item"><span>Buceo en Rangiroa</span><small>Tiburones, rayas y el paso de la Tiputa</small></div>
+          <div class="exp-item"><span>Día en un motu privado</span><small>Islote solo para vosotros con picnic de langosta</small></div>
+        </div>
+        <div class="dest-data">
+          <div class="dd"><span class="dd-l">Mejor época</span><span class="dd-v">Mayo – Octubre</span></div>
+          <div class="dd"><span class="dd-l">Vuelo</span><span class="dd-v">~24h con escala (Tahití)</span></div>
+          <div class="dd"><span class="dd-l">Estancia ideal</span><span class="dd-v">10 – 14 noches</span></div>
+          <div class="dd"><span class="dd-l">Visado</span><span class="dd-v">No necesario</span></div>
+        </div>
+        <a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a>
       </div>
     </div>
-  </div>
 
-  <div class="destino reveal">
-    <img src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=2000&q=80" alt="Costa de Mauricio">
-    <div class="destino-info">
-      <div>
-        <h3>Mauricio</h3>
-        <p class="d-txt">Lagunas esmeralda, montañas verdes y resorts de autor. El Índico en su versión más íntima.</p>
+    <div class="dest-panel" id="dest-tanzania" role="tabpanel">
+      <div class="dest-media">
+        <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1600&q=80" alt="Elefantes en el Serengeti, Tanzania">
+        <div class="dest-pill">Desde 8.000€ / pax</div>
       </div>
-      <div class="destino-price">
-        <div class="desde">Nuestros viajes comienzan desde</div>
-        <div class="precio">5.500€ <small>por persona</small></div>
-        <a href="#contacto" class="destino-cta">Descubrir</a>
+      <div class="dest-content">
+        <div class="section-label">04 — Tanzania</div>
+        <h3 class="dest-name">El mejor safari para una luna de miel</h3>
+        <p class="dest-desc">Despertar viendo jirafas desde tu lodge privado en el Serengeti, la Gran Migración a tus pies y rematar con las playas de Zanzíbar. Naturaleza salvaje y lujo sereno en el mismo viaje.</p>
+        <div class="dest-exp">
+          <div class="exp-title">Experiencias top</div>
+          <div class="exp-item"><span>Safari privado en el Serengeti</span><small>Lodge frente a la Gran Migración</small></div>
+          <div class="exp-item"><span>Ngorongoro al amanecer</span><small>El cráter donde vive el 10% de los leones de África</small></div>
+          <div class="exp-item"><span>Cena bajo las estrellas</span><small>En plena sabana, rodeados de la noche africana</small></div>
+          <div class="exp-item"><span>Zanzíbar, el remate</span><small>Stone Town y playas de arena de polvo de talco</small></div>
+        </div>
+        <div class="dest-data">
+          <div class="dd"><span class="dd-l">Mejor época</span><span class="dd-v">Junio – Octubre (migración)</span></div>
+          <div class="dd"><span class="dd-l">Vuelo</span><span class="dd-v">~10h con escala</span></div>
+          <div class="dd"><span class="dd-l">Estancia ideal</span><span class="dd-v">9 – 12 noches</span></div>
+          <div class="dd"><span class="dd-l">Visado</span><span class="dd-v">E-visa (gestión incluida)</span></div>
+        </div>
+        <a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a>
       </div>
     </div>
+
+    <div class="dest-panel" id="dest-japan" role="tabpanel">
+      <div class="dest-media">
+        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1600&q=80" alt="Monte Fuji y torii en Japón">
+        <div class="dest-pill">Desde 6.000€ / pax</div>
+      </div>
+      <div class="dest-content">
+        <div class="section-label">05 — Japón</div>
+        <h3 class="dest-name">Tradición y futuro, en privado</h3>
+        <p class="dest-desc">Ryokans secretos con onsen privado, cenas omakase en restaurantes con estrella y acceso a experiencias que no se encuentran en internet. Japón no se visita: se transita con guía, en silencio y con calma.</p>
+        <div class="dest-exp">
+          <div class="exp-title">Experiencias top</div>
+          <div class="exp-item"><span>Ryokan con onsen privado</span><small>Hakone, baños termales con vista al Fuji</small></div>
+          <div class="exp-item"><span>Cena omakase con estrella</span><small>Reserva privada en la barra del chef</small></div>
+          <div class="exp-item"><span>Kioto en privado</span><small>Templos y jardines secretos con guía experto</small></div>
+          <div class="exp-item"><span>Shinkansen en Gran Clase</span><small>Tokio – Kioto como debe vivirse</small></div>
+        </div>
+        <div class="dest-data">
+          <div class="dd"><span class="dd-l">Mejor época</span><span class="dd-v">Mar – May (cerezos) · Oct – Nov</span></div>
+          <div class="dd"><span class="dd-l">Vuelo</span><span class="dd-v">~14h con escala</span></div>
+          <div class="dd"><span class="dd-l">Estancia ideal</span><span class="dd-v">10 – 12 noches</span></div>
+          <div class="dd"><span class="dd-l">Visado</span><span class="dd-v">No necesario (90 días)</span></div>
+        </div>
+        <a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a>
+      </div>
+    </div>
+
+    <div class="dest-panel" id="dest-mauritius" role="tabpanel">
+      <div class="dest-media">
+        <img src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=1600&q=80" alt="Costa de Mauricio">
+        <div class="dest-pill">Desde 5.500€ / pax</div>
+      </div>
+      <div class="dest-content">
+        <div class="section-label">06 — Mauricio</div>
+        <h3 class="dest-name">El Índico en su versión más íntima</h3>
+        <p class="dest-desc">Lagunas esmeralda, montañas verdes y resorts de autor donde el lujo se sirve con naturalidad. Mauricio es el equilibrio perfecto entre aventura suave y descanso absoluto.</p>
+        <div class="dest-exp">
+          <div class="exp-title">Experiencias top</div>
+          <div class="exp-item"><span>Villa frente a la laguna</span><small>Resort de autor con acceso directo al agua</small></div>
+          <div class="exp-item"><span>Le Morne y su península</span><small>Kitesurf, laguna turquesa y leyenda viva</small></div>
+          <div class="exp-item"><span>Catamarán privado</span><small>Isla de los Ciervos y barbacoa de pescado</small></div>
+          <div class="exp-item"><span>Cena en la playa</span><small>A la luz de las antorchas, pies en la arena</small></div>
+        </div>
+        <div class="dest-data">
+          <div class="dd"><span class="dd-l">Mejor época</span><span class="dd-v">Mayo – Diciembre</span></div>
+          <div class="dd"><span class="dd-l">Vuelo</span><span class="dd-v">~12h con escala</span></div>
+          <div class="dd"><span class="dd-l">Estancia ideal</span><span class="dd-v">7 – 9 noches</span></div>
+          <div class="dd"><span class="dd-l">Visado</span><span class="dd-v">No necesario</span></div>
+        </div>
+        <a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -524,6 +620,15 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
   burger.addEventListener('click', () => toggle(!overlay.classList.contains('open')));
   overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggle(false)));
   document.addEventListener('keydown', e => { if (e.key === 'Escape') toggle(false); });
+
+  // Destinos selector (tabs)
+  const tabs = document.querySelectorAll('.dest-tab');
+  const panels = document.querySelectorAll('.dest-panel');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => { x.classList.remove('active'); x.setAttribute('aria-selected', 'false'); });
+    t.classList.add('active'); t.setAttribute('aria-selected', 'true');
+    panels.forEach(p => p.classList.toggle('active', p.id === 'dest-' + t.dataset.dest));
+  }));
 
   // Reveal on scroll
   const reveals = document.querySelectorAll('.reveal');
