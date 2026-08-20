@@ -31,6 +31,15 @@ img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--terracotta);color:#fff}
 
+/* ---------- PRELOADER ---------- */
+.preloader{position:fixed;inset:0;z-index:300;background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;animation:preloaderOut .7s var(--ease) 1.7s forwards}
+@keyframes preloaderOut{to{opacity:0;visibility:hidden}}
+.preloader .pl-script{font-family:var(--script);font-size:clamp(54px,8vw,88px);color:var(--terracotta);opacity:0;animation:plIn 1s var(--ease) .15s forwards}
+.preloader .pl-caps{font-size:10px;letter-spacing:.6em;text-transform:uppercase;color:var(--ink);margin-top:4px;opacity:0;animation:plIn 1s var(--ease) .5s forwards}
+.preloader .pl-line{width:0;height:1px;background:var(--ink);margin-top:30px;animation:plLine 1.1s var(--ease) .35s forwards}
+@keyframes plIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes plLine{from{width:0}to{width:130px}}
+
 /* ---------- NAV ---------- */
 #nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:28px 48px;display:flex;align-items:center;justify-content:space-between;transition:all .5s var(--ease)}
 #nav.scrolled{background:rgba(247,244,239,.92);backdrop-filter:blur(12px);padding:14px 48px;box-shadow:0 1px 0 rgba(18,37,38,.08)}
@@ -182,6 +191,15 @@ section{padding:130px 48px}
 .t-item .t-name{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage)}
 .t-item .t-dest{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--terracotta-soft);margin-top:7px}
 
+/* ---------- PROCESO (4 actos) ---------- */
+.proceso{background:var(--white);padding:130px 48px}
+.proceso-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:48px;margin-top:74px}
+.p-step{border-top:1px solid var(--pearl);padding-top:26px;position:relative}
+.p-step::before{content:'';position:absolute;top:-1px;left:0;width:46px;height:1px;background:var(--terracotta)}
+.p-step .p-num{font-family:var(--serif);font-size:15px;letter-spacing:.26em;color:var(--terracotta)}
+.p-step h3{font-family:var(--serif);font-weight:400;font-size:26px;margin:16px 0 10px}
+.p-step p{color:var(--sage);font-size:12.5px;line-height:1.85;font-weight:300}
+
 /* ---------- HONEYMOON BANNER ---------- */
 .honeymoon{position:relative;height:70vh;min-height:480px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
 .honeymoon img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -257,10 +275,18 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
   .exp-item small{text-align:left}
   .dest-data{grid-template-columns:1fr}
   .t-grid{grid-template-columns:1fr;gap:44px}
+  .proceso-grid{grid-template-columns:1fr 1fr;gap:36px}
 }
 </style>
 </head>
 <body>
+
+<!-- PRELOADER -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="pl-script">Algo Mágico</div>
+  <div class="pl-caps">Viajes</div>
+  <div class="pl-line"></div>
+</div>
 
 <!-- NAV -->
 <nav id="nav">
@@ -550,6 +576,23 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
   </div>
 </section>
 
+<!-- PROCESO -->
+<section class="proceso" id="proceso">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="section-label">El método</div>
+      <h2 class="section-title">Un viaje, cuatro actos</h2>
+      <p class="section-sub">Así convertimos una conversación en un recuerdo que se cuenta años después.</p>
+    </div>
+    <div class="proceso-grid">
+      <div class="p-step reveal"><div class="p-num">01</div><h3>Conversación</h3><p>Cada viaje nace de una llamada. Contadnos cómo soñáis, qué os emociona y qué no negociáis.</p></div>
+      <div class="p-step reveal"><div class="p-num">02</div><h3>Diseño</h3><p>Dibujamos el itinerario a medida: propiedades evaluadas, experiencias reservadas en privado, cada hora pensada.</p></div>
+      <div class="p-step reveal"><div class="p-num">03</div><h3>Viaje</h3><p>Estáis a un mensaje de distancia. Atención real 24/7: si algo se desvía, ya está resuelto.</p></div>
+      <div class="p-step reveal"><div class="p-num">04</div><h3>Recuerdo</h3><p>El viaje no termina al aterrizar. Nos quedamos con vuestra historia — y con la siguiente.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACTO -->
 <section class="contacto" id="contacto">
   <div class="wrap contacto-grid">
@@ -627,6 +670,9 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
   burger.addEventListener('click', () => toggle(!overlay.classList.contains('open')));
   overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggle(false)));
   document.addEventListener('keydown', e => { if (e.key === 'Escape') toggle(false); });
+
+  // Preloader cleanup
+  setTimeout(() => { const pl = document.getElementById('preloader'); if (pl) pl.remove(); }, 2700);
 
   // Destinos selector (tabs)
   const tabs = document.querySelectorAll('.dest-tab');
