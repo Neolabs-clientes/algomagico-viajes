@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tanzania — Algo Mágico Viajes · Boutique Luxury Travel</title>
-<meta name="description" content="Safaris de lujo en Tanzania: Serengeti en privado, Ngorongoro, la Gran Migración y el remate en Zanzíbar. Diseñado a medida.">
+<title>Quiénes somos — Algo Mágico Viajes · Boutique Luxury Travel</title>
+<meta name="description" content="Algo Mágico Viajes: tu concierge de lujo personal. Seis destinos exóticos, propiedades evaluadas y atención real 24/7.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -208,6 +208,51 @@ footer{background:var(--ink);color:var(--cream);padding:70px 48px 40px;text-alig
   .data-band{grid-template-columns:1fr}
   .f-links{flex-wrap:wrap;gap:20px}
 }
+
+
+/* EXPERIENCIAS */
+.xp{background:var(--white)}
+.xp-block{display:grid;grid-template-columns:1fr 1fr;min-height:540px}
+.xp-block .xp-img{overflow:hidden}
+.xp-block .xp-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.xp-block:hover .xp-img img{transform:scale(1.05)}
+.xp-block .xp-txt{display:flex;flex-direction:column;justify-content:center;padding:80px 64px}
+.xp-block .xp-num{font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--terracotta)}
+.xp-block .xp-tag{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--aqua);margin:14px 0 0}
+.xp-block h3{font-family:var(--serif);font-weight:300;font-size:clamp(28px,3.2vw,44px);margin:8px 0 16px}
+.xp-block p{color:var(--sage);font-size:13.5px;line-height:1.9;font-weight:300}
+.xp-block.alt .xp-img{order:2}
+.xp-block.alt .xp-txt{background:var(--cream)}
+.quote{background:var(--ink);color:var(--cream);text-align:center;padding:120px 48px}
+.quote .q-script{font-family:var(--script);font-size:40px;color:var(--terracotta-soft)}
+.quote h2{font-family:var(--serif);font-weight:300;font-style:italic;font-size:clamp(26px,3.4vw,42px);max-width:860px;margin:20px auto 0;line-height:1.4}
+/* VALORES / ESTÁNDAR */
+.vals{background:var(--white)}
+.vals-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--pearl);border:1px solid var(--pearl);margin-top:60px}
+.val{background:var(--white);padding:44px 34px}
+.val .v-num{font-size:10px;letter-spacing:.3em;color:var(--terracotta)}
+.val h3{font-family:var(--serif);font-weight:400;font-size:22px;margin:12px 0 10px}
+.val p{color:var(--sage);font-size:12px;line-height:1.8;font-weight:300}
+.stats-band{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--pearl);border:1px solid var(--pearl);margin-top:26px}
+.st{background:var(--white);padding:36px;text-align:center}
+.st .st-num{font-family:var(--serif);font-size:40px;font-weight:300}
+.st .st-lbl{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage);margin-top:6px}
+/* MÉTODO: ACTOS A PANTALLA COMPLETA */
+.act{position:relative;height:100vh;min-height:560px;display:flex;align-items:center;overflow:hidden}
+.act img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.act::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,37,38,.85) 0%,rgba(18,37,38,.5) 55%,rgba(18,37,38,.15) 100%)}
+.act .a-inner{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:0 48px;width:100%}
+.act .a-num{font-size:10px;letter-spacing:.5em;text-transform:uppercase;color:var(--aqua)}
+.act h2{font-family:var(--serif);font-weight:300;font-size:clamp(42px,6vw,78px);color:#fff;margin:18px 0 20px;line-height:1}
+.act p{color:rgba(255,255,255,.88);font-size:14px;line-height:1.95;max-width:540px;font-weight:300}
+.act .a-rule{width:56px;height:1px;background:var(--terracotta);margin:26px 0 0}
+@media(max-width:960px){
+  .xp-block{grid-template-columns:1fr}
+  .xp-block .xp-txt{padding:56px 28px}
+  .xp-block.alt .xp-img{order:0}
+  .vals-grid,.stats-band{grid-template-columns:1fr 1fr}
+  .act .a-inner{padding:0 24px}
+}
 </style>
 </head>
 <body>
@@ -219,19 +264,19 @@ footer{background:var(--ink);color:var(--cream);padding:70px 48px 40px;text-alig
 </div>
 
 <nav id="nav">
-  <a href="../index.html" class="brand">
+  <a href="index.html" class="brand">
     <span class="b-script">Algo Mágico</span>
     <span class="b-caps">Viajes</span>
   </a>
   <div class="nav-links">
-    <a href="../quienes.html">Quiénes somos</a>
+    <a href="quienes.html">Quiénes somos</a>
     <div class="dropdown">
-      <a href="../index.html#destinos">Destinos <span class="dd-arrow">&#9662;</span></a>
-      <div class="dd-menu"><a href="maldivas.html">Maldivas</a><a href="seychelles.html">Seychelles</a><a href="polynesia.html">Polinesia Francesa</a><a href="tanzania.html" class='dd-active'>Tanzania</a><a href="japan.html">Japón</a><a href="mauritius.html">Mauricio</a><div class="dd-sep"></div><a href="../index.html#destinos">Ver todos →</a></div>
+      <a href="index.html#destinos">Destinos <span class="dd-arrow">&#9662;</span></a>
+      <div class="dd-menu"><a href="destinos/maldivas.html">Maldivas</a><a href="destinos/seychelles.html">Seychelles</a><a href="destinos/polynesia.html">Polinesia Francesa</a><a href="destinos/tanzania.html">Tanzania</a><a href="destinos/japan.html">Japón</a><a href="destinos/mauritius.html">Mauricio</a><div class="dd-sep"></div><a href="index.html#destinos">Ver todos →</a></div>
     </div>
-    <a href="../experiencias.html">Experiencias</a>
-    <a href="../metodo.html">El método</a>
-    <a href="../index.html#contacto" class="cta-nav">Planifica tu viaje</a>
+    <a href="experiencias.html">Experiencias</a>
+    <a href="metodo.html">El método</a>
+    <a href="index.html#contacto" class="cta-nav">Planifica tu viaje</a>
   </div>
   <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
@@ -240,111 +285,63 @@ footer{background:var(--ink);color:var(--cream);padding:70px 48px 40px;text-alig
   <div class="overlay-inner">
     <div class="overlay-slogan">Boutique Luxury Travel</div>
     <nav class="overlay-nav">
-      <a href="../quienes.html"><span class="n">01</span>Quiénes somos</a>
-      <a href="../index.html#destinos"><span class="n">02</span>Destinos</a>
-      <div class="ov-sub"><a href="maldivas.html">Maldivas</a><a href="seychelles.html">Seychelles</a><a href="polynesia.html">Polinesia Francesa</a><a href="tanzania.html">Tanzania</a><a href="japan.html">Japón</a><a href="mauritius.html">Mauricio</a></div>
-      <a href="../experiencias.html"><span class="n">03</span>Experiencias</a>
-      <a href="../metodo.html"><span class="n">04</span>El método</a>
-      <a href="../index.html#contacto"><span class="n">05</span>Contacto</a>
+      <a href="quienes.html"><span class="n">01</span>Quiénes somos</a>
+      <a href="index.html#destinos"><span class="n">02</span>Destinos</a>
+      <div class="ov-sub"><a href="destinos/maldivas.html">Maldivas</a><a href="destinos/seychelles.html">Seychelles</a><a href="destinos/polynesia.html">Polinesia Francesa</a><a href="destinos/tanzania.html">Tanzania</a><a href="destinos/japan.html">Japón</a><a href="destinos/mauritius.html">Mauricio</a></div>
+      <a href="experiencias.html"><span class="n">03</span>Experiencias</a>
+      <a href="metodo.html"><span class="n">04</span>El método</a>
+      <a href="index.html#contacto"><span class="n">05</span>Contacto</a>
     </nav>
     <div class="overlay-foot">
-      <a href="../index.html#contacto" class="btn btn-solid">Planifica tu viaje</a>
+      <a href="index.html#contacto" class="btn btn-solid">Planifica tu viaje</a>
       <a class="overlay-mail" href="mailto:algomagicoviajes@gmail.com">algomagicoviajes@gmail.com</a>
     </div>
   </div>
 </div>
 
 <header class="page-hero">
-  <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=2000&q=80" alt="Elefantes en el Serengeti, Tanzania">
+  <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=2000&q=80" alt="Paisaje natural dramático">
   <div class="ph-content">
-    <div class="ph-eyebrow">04 — Tanzania · Algo Mágico Viajes</div>
-    <h1 class="ph-title">Tanzania</h1>
-    <p class="ph-tag">El mejor safari para una luna de miel</p>
+    <div class="ph-eyebrow">Algo Mágico Viajes · Quiénes somos</div>
+    <h1 class="ph-title">Quiénes somos</h1>
+    <p class="ph-tag">No somos una agencia. Somos tu concierge de lujo personal.</p>
     <div class="ph-cta">
-      <a href="../index.html#contacto" class="btn btn-solid">Diseñar este viaje</a>
-      <a href="#experiencias" class="btn btn-ghost">Descubrir</a>
+      <a href="index.html#contacto" class="btn btn-solid">Diseñar este viaje</a>
+      <a href="#contenido" class="btn btn-ghost">Descubrir</a>
     </div>
   </div>
 </header>
 
 <section class="intro">
-  <div class="wrap">
-    <div class="section-label reveal">04 — Tanzania</div>
-    <p class="statement reveal">Despertar viendo jirafas desde tu lodge privado en el Serengeti, la Gran Migración a tus pies y rematar con las playas de Zanzíbar. Naturaleza salvaje y lujo sereno en el mismo viaje.</p>
-    <div class="col2">
-      <p class="reveal">El Serengeti no se describe: se siente. El sonido de la sabana al amanecer, el polvo rojo de la migración en el horizonte, el rugido que recorre la llanura antes de que el sol salga del todo.</p>
-      <p class="reveal">Diseñamos safaris en privado: lodges frente a los pasos de la migración, guías naturalistas que leen la sabana como un libro y el broche final en Zanzíbar, donde el Índico lava la aventura.</p>
-    </div>
-  </div>
-</section>
+<div class="wrap">
+<div class="section-label reveal">Quiénes somos</div>
+<p class="statement reveal">No somos una agencia. Somos tu concierge de lujo personal.</p>
+<div class="col2">
+<p class="reveal">Cada viaje que diseñamos nace de una conversación. Queremos conocer cómo sueñas, qué te emociona, qué no negocias. Solo entonces dibujamos un itinerario exclusivo a tu medida. No hay dos iguales, y no los habrá.</p>
+<p class="reveal">Trabajamos exclusivamente con destinos exóticos de alto valor experiencial: Maldivas, Seychelles, Polinesia Francesa, Tanzania, Japón y Mauricio. Seis destinos, una sola promesa: lujo experiencial de principio a fin. Cada propiedad ha sido evaluada por nuestro equipo — no ofrecemos lo que no conocemos.</p>
+</div></div></section>
+<section class="vals">
+<div class="wrap"><div class="reveal"><div class="section-label">Nuestros principios</div><h2 class="section-title">Lo que nunca negociamos</h2></div>
+<div class="vals-grid">
+<div class="val reveal"><div class="v-num">01</div><h3>Privacidad absoluta</h3><p>Villas, mesas y playas reservadas solo para vosotros. La discreción es la base de todo.</p></div>
+<div class="val reveal"><div class="v-num">02</div><h3>Conocimiento de primera mano</h3><p>Cada propiedad, cada guía, cada experiencia: evaluada por nuestro equipo antes de ofrecerla.</p></div>
+<div class="val reveal"><div class="v-num">03</div><h3>Atención real 24/7</h3><p>Durante el viaje, siempre hay alguien al otro lado. Sin bóticos, sin demoras, sin excusas.</p></div>
+<div class="val reveal"><div class="v-num">04</div><h3>Sin catálogos</h3><p>No vendemos paquetes. Componemos viajes que empiezan en una conversación y terminan en un recuerdo.</p></div>
+</div>
+<div class="stats-band">
+<div class="st"><div class="st-num">6</div><div class="st-lbl">Destinos curados</div></div>
+<div class="st"><div class="st-num">24/7</div><div class="st-lbl">Atención real</div></div>
+<div class="st"><div class="st-num">100%</div><div class="st-lbl">A medida</div></div>
+<div class="st"><div class="st-num">1</div><div class="st-lbl">Promesa: no defraudar</div></div>
+</div></div></section>
+<div class="quote"><div class="q-script">Algo Mágico</div><h2>"Trabajamos exclusivamente con lo que conocemos. No ofrecemos lo que no hemos visto."</h2></div>
 
-<section class="exp-page" id="experiencias">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="section-label">Experiencias top</div>
-      <h2 class="section-title">Momentos que no están en ningún catálogo</h2>
-      <p class="section-sub">Cada experiencia se reserva en privado y se adapta a vosotros. Nada de grupos, nada de colas, nada de improvisación.</p>
-    </div>
-    <div class="ex-list">
-<div class="ex-row reveal"><span class="ex-num">01</span><div class="ex-name">Safari privado en el Serengeti</div><div class="ex-desc">Lodge frente a la Gran Migración</div></div>
-<div class="ex-row reveal"><span class="ex-num">02</span><div class="ex-name">Ngorongoro al amanecer</div><div class="ex-desc">El cráter donde vive el 10% de los leones de África</div></div>
-<div class="ex-row reveal"><span class="ex-num">03</span><div class="ex-name">Cena bajo las estrellas</div><div class="ex-desc">En plena sabana, rodeados de la noche africana</div></div>
-<div class="ex-row reveal"><span class="ex-num">04</span><div class="ex-name">Zanzíbar, el remate</div><div class="ex-desc">Stone Town y playas de arena de polvo de talco</div></div>
-<div class="ex-row reveal"><span class="ex-num">05</span><div class="ex-name">Globo aerostático al alba</div><div class="ex-desc">La llanura infinita desde el silencio del cielo</div></div>
-<div class="ex-row reveal"><span class="ex-num">06</span><div class="ex-name">Gran Migración con naturalista</div><div class="ex-desc">Millones de ñus en movimiento, contados en vivo</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="stays">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="section-label">Dónde dormir</div>
-      <h2 class="section-title">Propiedades evaluadas por nuestro equipo</h2>
-      <p class="section-sub">Solo trabajamos con lo que conocemos de primera mano. Tres referencias, todas reservables en privado.</p>
-    </div>
-    <div class="stays-grid">
-<div class="stay reveal"><div class="s-num">01</div><h3>Singita Serengeti</h3><p>Lodge de autor frente a los pasos de la migración</p></div>
-<div class="stay reveal"><div class="s-num">02</div><h3>&Beyond Ngorongoro Crater Lodge</h3><p>Colgado del borde del cráter, vistas imposibles</p></div>
-<div class="stay reveal"><div class="s-num">03</div><h3>Four Seasons Safari Lodge</h3><p>La sabana desde tu piscina privada</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="gallery">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="section-label">Galería</div>
-      <h2 class="section-title">Tres imágenes, mil promesas</h2>
-    </div>
-    <div class="gallery-grid">
-<figure class="reveal"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80" alt="La llanura" loading="lazy"><figcaption>La llanura</figcaption></figure>
-<figure class="reveal"><img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1200&q=80" alt="El rey de la sabana" loading="lazy"><figcaption>El rey de la sabana</figcaption></figure>
-<figure class="reveal"><img src="https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=1200&q=80" alt="La manada" loading="lazy"><figcaption>La manada</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<section class="datos">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="section-label">Datos esenciales</div>
-      <h2 class="section-title">Lo que conviene saber</h2>
-    </div>
-    <div class="data-band reveal">
-<div class="d-item"><div class="d-l">Mejor época</div><div class="d-v">Junio – Octubre (migración)</div></div>
-<div class="d-item"><div class="d-l">Acceso</div><div class="d-v">Vuelo internacional + avioneta al Serengeti</div></div>
-<div class="d-item"><div class="d-l">Estancia ideal</div><div class="d-v">9 – 12 noches</div></div>
-    </div>
-  </div>
-</section>
-
-<div class="cta-band">
+<div class="cta-band" id="contenido">
   <div class="cb-script">Algo Mágico</div>
-  <h2>¿Hablamos de tu viaje a Tanzania?</h2>
-  <p>Cuéntanos cómo lo sueñas y te enviaremos una primera propuesta en menos de 24 horas.</p>
+  <h2>¿Hablamos de vuestro viaje?</h2>
+  <p>Contadnos cómo lo soñáis y os demostramos la diferencia entre una agencia y un concierge.</p>
   <div style="display:flex;gap:18px;justify-content:center;flex-wrap:wrap">
-    <a href="../index.html#contacto" class="btn btn-solid">Diseñar este viaje</a>
+    <a href="index.html#contacto" class="btn btn-solid">Diseñar este viaje</a>
     <a href="mailto:algomagicoviajes@gmail.com" class="btn btn-ghost">Escribirnos</a>
   </div>
   <div style="margin-top:30px"><a class="cb-mail" href="mailto:algomagicoviajes@gmail.com">algomagicoviajes@gmail.com</a></div>
@@ -354,18 +351,18 @@ footer{background:var(--ink);color:var(--cream);padding:70px 48px 40px;text-alig
   <div class="f-script">Algo Mágico</div>
   <div class="f-caps">Viajes</div>
   <div class="f-links">
-    <a href="../index.html#destinos">Destinos</a>
-    <a href="../experiencias.html">Experiencias</a>
-    <a href="../metodo.html">El método</a>
-    <a href="../quienes.html">Quiénes somos</a>
-    <a href="../index.html#contacto">Contacto</a>
+    <a href="index.html#destinos">Destinos</a>
+    <a href="experiencias.html">Experiencias</a>
+    <a href="metodo.html">El método</a>
+    <a href="quienes.html">Quiénes somos</a>
+    <a href="index.html#contacto">Contacto</a>
   </div>
   <div class="f-slogan">Boutique Luxury Travel</div>
   <a class="f-mail" href="mailto:algomagicoviajes@gmail.com">algomagicoviajes@gmail.com</a>
-  <div class="f-legal">Algo Mágico Viajes · Tanzania · Itinerarios exclusivos</div>
+  <div class="f-legal">Algo Mágico Viajes · Itinerarios exclusivos</div>
 </footer>
 
-<a class="wa-bubble" href="https://wa.me/34658237988?text=Hola%2C%20quiero%20dise%C3%B1ar%20un%20viaje%20a%20Tanzania" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+<a class="wa-bubble" href="https://wa.me/34658237988?text=Hola%2C%20quiero%20dise%C3%B1ar%20un%20viaje%20con%20Algo%20M%C3%A1gico%20Viajes" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
   <span class="wa-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
   <span class="wa-label">¿Hablamos de tu viaje?</span>
 </a>

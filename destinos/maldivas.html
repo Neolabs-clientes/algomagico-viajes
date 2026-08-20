@@ -54,9 +54,7 @@ a{color:inherit;text-decoration:none}
 /* DROPDOWN */
 .dropdown{position:relative}
 .dropdown .dd-arrow{font-size:8px;margin-left:7px;display:inline-block;transition:transform .35s}
-.dropdown:hover .dd-arrow{transform:rotate(180deg)}
 .dd-menu{position:absolute;top:calc(100% + 20px);left:50%;transform:translateX(-50%) translateY(12px);background:var(--cream);border:1px solid var(--pearl);min-width:240px;padding:12px 0;opacity:0;visibility:hidden;transition:all .4s var(--ease);box-shadow:0 24px 60px rgba(18,37,38,.16)}
-.dropdown:hover .dd-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
 .dd-menu a{display:block;padding:11px 26px;font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink)!important;opacity:1!important;transition:all .3s}
 .dd-menu a::after{display:none}
 .dd-menu a:hover{color:var(--terracotta)!important;padding-left:32px}
@@ -226,12 +224,13 @@ footer{background:var(--ink);color:var(--cream);padding:70px 48px 40px;text-alig
     <span class="b-caps">Viajes</span>
   </a>
   <div class="nav-links">
-    <a href="../index.html#quienes">Quiénes somos</a>
+    <a href="../quienes.html">Quiénes somos</a>
     <div class="dropdown">
       <a href="../index.html#destinos">Destinos <span class="dd-arrow">&#9662;</span></a>
-      <div class="dd-menu"><a href="maldivas.html" class='dd-active'>Maldivas</a><a href="seychelles.html">Seychelles</a><a href="polynesia.html">Polinesia Francesa</a><a href="tanzania.html">Tanzania</a><a href="japan.html">Japón</a><a href="mauritius.html">Mauricio</a></div>
+      <div class="dd-menu"><a href="maldivas.html" class='dd-active'>Maldivas</a><a href="seychelles.html">Seychelles</a><a href="polynesia.html">Polinesia Francesa</a><a href="tanzania.html">Tanzania</a><a href="japan.html">Japón</a><a href="mauritius.html">Mauricio</a><div class="dd-sep"></div><a href="../index.html#destinos">Ver todos →</a></div>
     </div>
-    <a href="../index.html#experiencias">Experiencias</a>
+    <a href="../experiencias.html">Experiencias</a>
+    <a href="../metodo.html">El método</a>
     <a href="../index.html#contacto" class="cta-nav">Planifica tu viaje</a>
   </div>
   <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -241,11 +240,11 @@ footer{background:var(--ink);color:var(--cream);padding:70px 48px 40px;text-alig
   <div class="overlay-inner">
     <div class="overlay-slogan">Boutique Luxury Travel</div>
     <nav class="overlay-nav">
-      <a href="../index.html#quienes"><span class="n">01</span>Quiénes somos</a>
+      <a href="../quienes.html"><span class="n">01</span>Quiénes somos</a>
       <a href="../index.html#destinos"><span class="n">02</span>Destinos</a>
       <div class="ov-sub"><a href="maldivas.html">Maldivas</a><a href="seychelles.html">Seychelles</a><a href="polynesia.html">Polinesia Francesa</a><a href="tanzania.html">Tanzania</a><a href="japan.html">Japón</a><a href="mauritius.html">Mauricio</a></div>
-      <a href="../index.html#experiencias"><span class="n">03</span>Experiencias</a>
-      <a href="../index.html#proceso"><span class="n">04</span>El método</a>
+      <a href="../experiencias.html"><span class="n">03</span>Experiencias</a>
+      <a href="../metodo.html"><span class="n">04</span>El método</a>
       <a href="../index.html#contacto"><span class="n">05</span>Contacto</a>
     </nav>
     <div class="overlay-foot">
@@ -356,9 +355,9 @@ footer{background:var(--ink);color:var(--cream);padding:70px 48px 40px;text-alig
   <div class="f-caps">Viajes</div>
   <div class="f-links">
     <a href="../index.html#destinos">Destinos</a>
-    <a href="../index.html#experiencias">Experiencias</a>
-    <a href="../index.html#proceso">El método</a>
-    <a href="../index.html#quienes">Quiénes somos</a>
+    <a href="../experiencias.html">Experiencias</a>
+    <a href="../metodo.html">El método</a>
+    <a href="../quienes.html">Quiénes somos</a>
     <a href="../index.html#contacto">Contacto</a>
   </div>
   <div class="f-slogan">Boutique Luxury Travel</div>
