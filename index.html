@@ -60,6 +60,27 @@ a{color:inherit;text-decoration:none}
 #nav.scrolled .cta-nav{border-color:var(--terracotta);color:var(--terracotta)!important}
 .cta-nav:hover{background:var(--terracotta);border-color:var(--terracotta);color:#fff!important}
 
+/* ---------- DROPDOWN DESTINOS ---------- */
+.dropdown{position:relative}
+.dropdown .dd-arrow{font-size:8px;margin-left:7px;display:inline-block;transition:transform .35s}
+.dropdown:hover .dd-arrow{transform:rotate(180deg)}
+.dd-menu{position:absolute;top:calc(100% + 20px);left:50%;transform:translateX(-50%) translateY(12px);background:var(--cream);border:1px solid var(--pearl);min-width:240px;padding:12px 0;opacity:0;visibility:hidden;transition:all .4s var(--ease);box-shadow:0 24px 60px rgba(18,37,38,.16)}
+.dropdown:hover .dd-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.dd-menu a{display:block;padding:11px 26px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink)!important;opacity:1!important;transition:all .3s}
+.dd-menu a::after{display:none}
+.dd-menu a:hover{color:var(--terracotta)!important;padding-left:32px}
+
+/* ---------- OVERLAY SUB ---------- */
+.ov-sub{display:flex;flex-direction:column;margin:2px 0 10px 52px}
+.ov-sub a{font-family:var(--sans);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.6);padding:7px 0;opacity:0;transform:translateY(16px);transition:all .5s var(--ease)}
+.overlay.open .ov-sub a{opacity:1;transform:none}
+.ov-sub a:hover{color:var(--aqua)}
+
+/* ---------- CTA PANEL DESTINO ---------- */
+.dest-ctas{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin-top:6px}
+.dest-full{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--sage);border-bottom:1px solid var(--pearl);padding-bottom:5px;transition:all .35s}
+.dest-full:hover{color:var(--terracotta);border-color:var(--terracotta)}
+
 /* ---------- BURGER ---------- */
 .burger{display:flex;flex-direction:column;gap:6px;background:none;border:none;padding:10px 4px;cursor:pointer;z-index:210;transition:opacity .3s}
 .burger span{display:block;width:30px;height:1.5px;background:var(--cream);transition:all .45s var(--ease)}
@@ -296,7 +317,17 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
     <span class="b-caps">Viajes</span>
   </a>
   <div class="nav-links">
-    <a href="#destinos">Destinos</a>
+    <div class="dropdown">
+      <a href="#destinos">Destinos <span class="dd-arrow">&#9662;</span></a>
+      <div class="dd-menu">
+        <a href="destinos/maldivas.html">Maldivas</a>
+        <a href="destinos/seychelles.html">Seychelles</a>
+        <a href="destinos/polynesia.html">Polinesia Francesa</a>
+        <a href="destinos/tanzania.html">Tanzania</a>
+        <a href="destinos/japan.html">Japón</a>
+        <a href="destinos/mauritius.html">Mauricio</a>
+      </div>
+    </div>
     <a href="#experiencias">Experiencias</a>
     <a href="#contacto">Contacto</a>
     <a href="#contacto" class="cta-nav">Planifica tu viaje</a>
@@ -311,8 +342,17 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
     <nav class="overlay-nav">
       <a href="#quienes"><span class="n">01</span>Quiénes somos</a>
       <a href="#destinos"><span class="n">02</span>Destinos</a>
+      <div class="ov-sub">
+        <a href="destinos/maldivas.html">Maldivas</a>
+        <a href="destinos/seychelles.html">Seychelles</a>
+        <a href="destinos/polynesia.html">Polinesia Francesa</a>
+        <a href="destinos/tanzania.html">Tanzania</a>
+        <a href="destinos/japan.html">Japón</a>
+        <a href="destinos/mauritius.html">Mauricio</a>
+      </div>
       <a href="#experiencias"><span class="n">03</span>Experiencias</a>
-      <a href="#contacto"><span class="n">04</span>Contacto</a>
+      <a href="#proceso"><span class="n">04</span>El método</a>
+      <a href="#contacto"><span class="n">05</span>Contacto</a>
     </nav>
     <div class="overlay-foot">
       <a href="#contacto" class="btn btn-solid">Planifica tu viaje</a>
@@ -396,7 +436,7 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
           <div class="dd"><span class="dd-l">Acceso</span><span class="dd-v">Hidroavión o lancha desde Malé</span></div>
           <div class="dd"><span class="dd-l">Estancia ideal</span><span class="dd-v">7 – 9 noches</span></div>
         </div>
-        <a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a>
+        <div class="dest-ctas"><a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a><a class="dest-full" href="destinos/maldivas.html">Ver viaje completo →</a></div>
       </div>
     </div>
 
@@ -420,7 +460,7 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
           <div class="dd"><span class="dd-l">Acceso</span><span class="dd-v">Vuelo internacional + transfer privado</span></div>
           <div class="dd"><span class="dd-l">Estancia ideal</span><span class="dd-v">8 – 10 noches</span></div>
         </div>
-        <a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a>
+        <div class="dest-ctas"><a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a><a class="dest-full" href="destinos/seychelles.html">Ver viaje completo →</a></div>
       </div>
     </div>
 
@@ -444,7 +484,7 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
           <div class="dd"><span class="dd-l">Acceso</span><span class="dd-v">Vuelo internacional + conexión a Bora Bora</span></div>
           <div class="dd"><span class="dd-l">Estancia ideal</span><span class="dd-v">10 – 14 noches</span></div>
         </div>
-        <a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a>
+        <div class="dest-ctas"><a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a><a class="dest-full" href="destinos/polynesia.html">Ver viaje completo →</a></div>
       </div>
     </div>
 
@@ -468,7 +508,7 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
           <div class="dd"><span class="dd-l">Acceso</span><span class="dd-v">Vuelo internacional + avioneta al Serengeti</span></div>
           <div class="dd"><span class="dd-l">Estancia ideal</span><span class="dd-v">9 – 12 noches</span></div>
         </div>
-        <a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a>
+        <div class="dest-ctas"><a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a><a class="dest-full" href="destinos/tanzania.html">Ver viaje completo →</a></div>
       </div>
     </div>
 
@@ -492,7 +532,7 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
           <div class="dd"><span class="dd-l">Acceso</span><span class="dd-v">Vuelo internacional + Shinkansen</span></div>
           <div class="dd"><span class="dd-l">Estancia ideal</span><span class="dd-v">10 – 12 noches</span></div>
         </div>
-        <a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a>
+        <div class="dest-ctas"><a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a><a class="dest-full" href="destinos/japan.html">Ver viaje completo →</a></div>
       </div>
     </div>
 
@@ -516,7 +556,7 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
           <div class="dd"><span class="dd-l">Acceso</span><span class="dd-v">Vuelo internacional + transfer privado</span></div>
           <div class="dd"><span class="dd-l">Estancia ideal</span><span class="dd-v">7 – 9 noches</span></div>
         </div>
-        <a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a>
+        <div class="dest-ctas"><a href="#contacto" class="btn btn-solid dest-cta">Diseñar este viaje</a><a class="dest-full" href="destinos/mauritius.html">Ver viaje completo →</a></div>
       </div>
     </div>
 
@@ -638,6 +678,7 @@ footer{background:var(--ink);color:var(--cream);padding:80px 48px 40px;text-alig
   <div class="f-links">
     <a href="#destinos">Destinos</a>
     <a href="#experiencias">Experiencias</a>
+    <a href="#proceso">El método</a>
     <a href="#quienes">Quiénes somos</a>
     <a href="#contacto">Contacto</a>
   </div>
